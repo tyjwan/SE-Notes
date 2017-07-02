@@ -22,5 +22,6 @@ import urllib2,os;pf='Package Control.sublime-package';ipp=sublime.installed_pac
 ## Markdown 相关插件安装
 - MarkdownEditing:Markdown文件编辑
 - OmniMarkupPreviewer：Markdown文件浏览和转换
+- IMESupport:输入法光标不跟随问题解决差距
 
 
