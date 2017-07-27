@@ -23,5 +23,6 @@ import urllib2,os;pf='Package Control.sublime-package';ipp=sublime.installed_pac
 - MarkdownEditing:Markdown文件编辑
 - OmniMarkupPreviewer：Markdown文件浏览和转换
 - IMESupport:输入法光标不跟随问题解决差距
+- ConvertToUTF8:Windows 乱码问题
 
 
