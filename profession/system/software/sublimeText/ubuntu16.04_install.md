@@ -1,5 +1,6 @@
 # Ubuntu16.04 下的 sublime text 2配置记录
 ***
+[TOC]
 
 ## 一、安装sublime
 &ensp;&ensp;&ensp;&ensp;通过命令行进行安装，这样比较方便,其默认安装在/opt/下面：

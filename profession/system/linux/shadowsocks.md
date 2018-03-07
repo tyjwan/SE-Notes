@@ -10,7 +10,7 @@ sudo pip install shadowsocks
 ```
 
 ## 二、配置文件
-&ensp;&ensp;&ensp;&ensp;在/opt/目录下新建一个 shadowssocks.json 文件，文件大致的内容如下：
+&ensp;&ensp;&ensp;&ensp;在/etc/目录下新建一个 shadowssocks.json 文件，文件大致的内容如下：
 
 ```
 {
@@ -31,7 +31,7 @@ sudo pip install shadowsocks
 &ensp;&ensp;&ensp;&ensp;在命令行中运行：
 
 ```
-sslocal -c /home/xxx/shadowsocks.json
+sslocal -c /etc/shadowsocks.json
 ```
 
 &ensp;&ensp;&ensp;&ensp;成功的话你会看到下面的界面：
@@ -61,3 +61,6 @@ sslocal -c /home/xxx/shadowsocks.json
 [ubuntu乌班图：[1]ubuntu怎样设置代理上网](https://jingyan.baidu.com/article/642c9d34eb2adb644a46f7bd.html)
 
 [Linux中配置SS （非全局模式）](http://blog.csdn.net/qq_25978793/article/details/49870501)
+
+## 问题修复参考
+- [AttributeError: /usr/lib/x86_64-Linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup](http://blog.csdn.net/blackfrog_unique/article/details/60320737)
