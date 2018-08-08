@@ -2,7 +2,7 @@
 ***
 
 ## 参考链接
-[python rrdtool api]https://pythonhosted.org/rrdtool/usage.html)
+[python rrdtool api](https://pythonhosted.org/rrdtool/usage.html)
 [ndfump 使用参考](http://manpages.ubuntu.com/manpages/xenial/man1/nfdump.1.html)
 [RRD 数据库简介及操作](https://blog.csdn.net/yuzhihui_no1/article/details/65435471)
 [RRDTool 详解](http://blog.51cto.com/freeloda/1307492)
