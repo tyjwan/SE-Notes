@@ -90,7 +90,10 @@ git push origin master --force
 
 ### 二、其他的使用
 #### 无密码进行拉取和提交
-- 在工程目录下输入命令即可：git config --global credential.helper store
+- 在工程目录下输入命令即可：
+
+git config --global credential.helper store
+git config credential.helper store
 
 
 ## 强烈推荐链接

@@ -11,3 +11,19 @@
 ## 备用软件
 - Wox：开源免费强大的快捷启动器辅助工具，快速高效率打开软件/搜索文件！（发现Windows7也能在简单的搜索启动程序，后面就没有装了）
 - Chocolatey：命令行的软件安装管理，正在尝试中
+
+## 好用的
+[Sublime Text 3](https://www.sublimetext.com/)
+[任务栏硬件监视工具(XMeters)](http://www.cncrk.com/downinfo/202717.html)
+[IObit Uninstaller](https://www.iplaysoft.com/iobit-uninstaller.html)
+[OpenSSH for Windows](https://www.mls-software.com/opensshd.html)
+[Download Anaconda Distribution](https://www.anaconda.com/download/)
+[Java SE Development Kit 8 Downloads](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+[Win10如何配置Jdk环境变量](https://jingyan.baidu.com/article/db55b609fa946e4ba20a2f56.html)
+[Install Docker for Windows]https://docs.docker.com/docker-for-windows/install/)
+[Windows Docker 安装](http://www.runoob.com/docker/windows-docker-install.html)
+[VistaSwitcher – 极佳的程序切换工具](https://www.appinn.com/vistaswitcher/)
+
+异次元软件
+大眼仔
+小众软件
