@@ -68,6 +68,7 @@ Outstanding:            1 (  0.000%)
 ### 数据包处理方面
 &ensp;&ensp;&ensp;&ensp;看他们基本上都是开启多个snort的，万兆的开了12个，网上说是够用了
 
+<<<<<<< HEAD
 ## snort过滤包的问题
 &ensp;&ensp;&ensp;&ensp;前期担心数据量过大，考虑进行数据包过滤，由于UDP包在网络攻击中的作用不大，将丢弃UDP包。
 
@@ -111,6 +112,60 @@ docker run -tid --net=host --name snort snort /usr/local/bin/snort -A console -u
 
 /usr/local/bin/snort -A console -u snort -g snort -c /etc/snort/snort.conf -i enp4s0 -F /etc/snort/filter.bpf
 
+=======
+## 实验数据
+### 15秒左右发送了120万个数据包
+
+```
+Packet I/O Totals:
+   Received:       497600
+   Analyzed:       497600 (100.000%)
+    Dropped:       570717 ( 53.422%)
+   Filtered:            0 (  0.000%)
+Outstanding:            0 (  0.000%)
+   Injected:            0
+
+Packet I/O Totals:
+   Received:       540223
+   Analyzed:       540223 (100.000%)
+    Dropped:       735552 ( 57.655%)
+   Filtered:            0 (  0.000%)
+Outstanding:            0 (  0.000%)
+   Injected:            0
+
+Packet I/O Totals:
+   Received:       591759
+   Analyzed:       591759 (100.000%)
+    Dropped:       893606 ( 60.161%)
+   Filtered:            0 (  0.000%)
+Outstanding:            0 (  0.000%)
+   Injected:            0
+
+Packet I/O Totals:
+   Received:       675657
+   Analyzed:       675657 (100.000%)
+    Dropped:      1012010 ( 59.965%)
+   Filtered:            0 (  0.000%)
+Outstanding:            0 (  0.000%)
+   Injected:            0
+
+```
+
+```
+Total packets processed:              176719
+Total packets processed:              174065
+1192681
+
+```
+
+
+## other
+/usr/local/bin/snort -A console -u snort -g snort -c /etc/snort/snort.conf --daq-dir=/usr/local/lib/daq --daq pfring -i enp0s31f6
+/usr/local/bin/snort -A console -u snort -g snort -c /etc/snort/snort.conf -i enp0s31f6
+docker rm $(docker ps -a -q)
+docker run -tid --net=host --name snort snort /usr/local/bin/snort -A console -u snort -g snort -c /etc/snort/snort.conf -i enp0s31f6
+
+>>>>>>> 7e0daaaf2a55b4eda2bee928f3417b367c470d84
 ## 参考链接
 - [关于Snort的抓包原理及性能改进(可能版本较老，不知现在的版本如何)](http://sourcedb.ict.cas.cn/cn/ictthesis/200907/P020090722605372300999.pdf)
 - [SNORT原理简介与优化及GNORT初探](http://www.owasp.org.cn/OWASP_Events/download/snort.pdf)
@@ -132,6 +187,10 @@ docker run -tid --net=host --name snort snort /usr/local/bin/snort -A console -u
 - [liunx检测上下行带宽及丢包率](https://blog.csdn.net/zhangsheng_1992/article/details/52806477)
 - [Docs » 工具参考篇 » 19. crontab 定时任务](http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/crontab.html)
 - [Linux之crontab定时任务](https://www.jianshu.com/p/838db0269fd0)
+<<<<<<< HEAD
 - [Snort 命令参数详解](https://blog.csdn.net/jack237/article/details/6899465)
 - [BPF过滤规则及tcpdump命令详解](https://blog.csdn.net/luguifang2011/article/details/72953917)
 - [SNORT_BPF变量的配置在防御中心的](https://www.cisco.com/c/zh_cn/support/docs/security/firesight-management-center/118090-configure-sourcefire-00.html)
+=======
+- 
+>>>>>>> 7e0daaaf2a55b4eda2bee928f3417b367c470d84
