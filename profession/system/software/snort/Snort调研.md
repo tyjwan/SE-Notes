@@ -53,7 +53,7 @@ Outstanding:            1 (  0.000%)
    Injected:            0
 ```
 
-&ensp;&ensp;&ensp;&ensp;不知道数据包为啥是22万，但多个测试下来感觉基本正常情况下大概呈现2倍的关系，也就是说上面的测试基本上丢了一半的包？还分析不过来？
+&ensp;&ensp;&ensp;&ensp;不知道数据包为啥是22万，但多个测试下来感觉基本正常情况下大概呈现2倍的关系，也就是说上面的测试基本上丢了一些的包？还分析不过来？测试下来发现CPU在上面的测试中没有用到100%过，最高50%左右，还是数据包刚开始发送的时候，很多时候基本都是20%左右的CPU占用率，感觉是与系统的数据包数量有关吧，毕竟抓不了那么多的数据包。后面随着发包总数的增大，但发包的频率不变（基本1万1秒），抓包率好像基本维持在3/4,snort的处理率维持在50%左右（按照数据来看是这样的）
 
 ## 解决方案
 &ensp;&ensp;&ensp;&ensp;网上提供了一些解决方案，但还没来得及去尝试
@@ -68,5 +68,70 @@ Outstanding:            1 (  0.000%)
 ### 数据包处理方面
 &ensp;&ensp;&ensp;&ensp;看他们基本上都是开启多个snort的，万兆的开了12个，网上说是够用了
 
+## snort过滤包的问题
+&ensp;&ensp;&ensp;&ensp;前期担心数据量过大，考虑进行数据包过滤，由于UDP包在网络攻击中的作用不大，将丢弃UDP包。
+
+&ensp;&ensp;&ensp;&ensp;经过调研后决定使用snort的 -F <bpf> 指定BPF过滤器。测试的数据如下，分别是过滤了TCP包和不过滤TCP包的数据处理结果和CPU使用情况
+
+```
+# 只使用Windows实验环境中发包程序，90线程最大速度
+# 只要TCP包，其他的过滤掉，好像发包程序发的不是tcp，是啥ARP
+CPU使用情况：0.3%
+处理包的数据量：10秒内处理了6个
+
+# 不进行包过滤
+CPU使用情况：29.2%
+处理包的数据量：11秒内处理了190851个
+
+# 使用第三方发送UDP包和TCP包，总共速率31M
+# 只要TCP包，其他的过滤掉
+CPU使用情况：31%
+处理包的数据量：287954 11秒
+
+# 不进行包过滤
+CPU使用情况：42.3%
+处理包的数据量：649593 12秒
+
+# 使用使用Windows实验环境中发包程序90线程最大速度，第三方发送TCP包，速率31M
+# 不进行包过滤
+CPU使用情况：39.3%
+处理包的数据量：5845501 25秒
+
+# 只要TCP包，其他的过滤掉
+CPU使用情况：0.1%
+处理包的数据量：27690 24秒（刚好是第三方发送数据包数量）
+```
+
+&ensp;&ensp;&ensp;&ensp;从上面的数据的处理包的数据量可以看出使用过滤是有效的，snort对TCP协议以外的包进行了过滤。从CPU的使用情况可以看出过滤能相应的提升snort的处理性能，过滤后不进行后面的规则匹配，应该能提升snort的处理速度。
+
+## other
+/usr/local/bin/snort -A console -u snort -g snort -c /etc/snort/snort.conf --daq-dir=/usr/local/lib/daq --daq pfring -i enp0s31f6
+docker rm $(docker ps -a -q)
+docker run -tid --net=host --name snort snort /usr/local/bin/snort -A console -u snort -g snort -c /etc/snort/snort.conf -i enp0s31f6
+
+/usr/local/bin/snort -A console -u snort -g snort -c /etc/snort/snort.conf -i enp4s0 -F /etc/snort/filter.bpf
+
 ## 参考链接
-[关于Snort的抓包原理及性能改进(可能版本较老，不知现在的版本如何)](http://sourcedb.ict.cas.cn/cn/ictthesis/200907/P020090722605372300999.pdf)
+- [关于Snort的抓包原理及性能改进(可能版本较老，不知现在的版本如何)](http://sourcedb.ict.cas.cn/cn/ictthesis/200907/P020090722605372300999.pdf)
+- [SNORT原理简介与优化及GNORT初探](http://www.owasp.org.cn/OWASP_Events/download/snort.pdf)
+- [Linux配置hiredis](https://blog.csdn.net/zhwei_87/article/details/39643309)
+- [hiredis 下载地址](https://github.com/redis/hiredis/releases)
+- [PF_RING安装与使用总结](http://blog.51cto.com/yuzwei/1716803)
+- [高性能流量生成工具trafgen(DDoS模拟)](https://blog.csdn.net/u010390063/article/details/79078756)
+- [Inline Snort multiprocessing with PF_RING(尝试成功的snort结合pf_ring版本)](https://snort-org-site.s3.amazonaws.com/production/document_files/files/000/000/014/original/PF_RING_Snort_Inline_Instructions_daq_062.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIXACIED2SPMSC7GA%2F20180725%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180725T122112Z&X-Amz-Expires=172800&X-Amz-SignedHeaders=host&X-Amz-Signature=f782832c1784b438e7e3425a256a5186f8ccdfbb1840179df775411e7a7668f4)
+- [Installing from GIT](https://www.ntop.org/guides/pf_ring/get_started/git_installation.html#)
+- [Using Snort with PF_RING](https://www.ntop.org/guides/pf_ring/thirdparty/snort-daq.html)
+- [snort download](https://www.snort.org/downloads#snort-downloads)
+- [snort 2.9 docment](https://snort-org-site.s3.amazonaws.com/production/document_files/files/000/000/122/original/Snort_2.9.9.x_on_Ubuntu_14-16.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIXACIED2SPMSC7GA%2F20180725%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180725T091034Z&X-Amz-Expires=172800&X-Amz-SignedHeaders=host&X-Amz-Signature=fa38cc81bc1cedaee8b4696643e31bff92ae9e7fe46d23025c9edc9f8156b7fb)
+- [snort 3.0 docment](https://snort-org-site.s3.amazonaws.com/production/document_files/files/000/000/136/original/Snort_3_on_CentOS_7.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIXACIED2SPMSC7GA%2F20180725%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180725T110233Z&X-Amz-Expires=172800&X-Amz-SignedHeaders=host&X-Amz-Signature=6e23ca85dfff5c03df79af70fef0178ace629137c3a641c8d48496b5d43d445c)
+- [snort Documents](https://www.snort.org/documents)
+- [免费DDOS攻击测试工具大合集](http://www.freebuf.com/sectool/36545.html)
+- [推荐两款网络攻击测试工具](https://juejin.im/entry/5aa792586fb9a028d936d5e9)
+- [网络性能测试](https://cloud.tencent.com/document/product/213/11460)
+- [linux下的CPU、内存、IO、网络的压力测试](http://blog.51cto.com/wushank/1585927)
+- [liunx检测上下行带宽及丢包率](https://blog.csdn.net/zhangsheng_1992/article/details/52806477)
+- [Docs » 工具参考篇 » 19. crontab 定时任务](http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/crontab.html)
+- [Linux之crontab定时任务](https://www.jianshu.com/p/838db0269fd0)
+- [Snort 命令参数详解](https://blog.csdn.net/jack237/article/details/6899465)
+- [BPF过滤规则及tcpdump命令详解](https://blog.csdn.net/luguifang2011/article/details/72953917)
+- [SNORT_BPF变量的配置在防御中心的](https://www.cisco.com/c/zh_cn/support/docs/security/firesight-management-center/118090-configure-sourcefire-00.html)
