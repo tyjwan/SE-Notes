@@ -1,4 +1,4 @@
-# Ubuntu服务编写及服务开机启动
+# Linux服务编写及服务开机启动
 ***
 ## 一、服务编写
 ### 编写服务脚本
@@ -26,13 +26,18 @@ PID_PATH="/var/run/"
 
 # 上面的保持原样就行，需要写的start和stop函数
 start() {
-    # 添加相相应的脚本命令，比如创建个文件
-    touch /root/test.sh
+    echo "current PID: $$" #这句删除也可以
+    bin/kibana  > kibana.log 2>&1 &
+    echo "$!"
+    echo "$!" >  /var/run/kibana.pid #将上一个后台进程写入到标准的pid文件和路径中
 }
 
 stop() {
-    # 添加相应的脚本命令，比如删除文件
-    rm /root/test.sh
+    if [ -f  "/var/run/kibana.pid" ]; then
+        echo "Will kill kibana"
+        kill -9 `cat /var/run/kibana.pid`
+    else
+        echo "Programe don't run"
 }
 
 # 下面这些也用改
@@ -70,24 +75,36 @@ esac
 ```
 chmod +x /etc/init.d/test
 
+# Ubuntu,Kali下的操作
 # update-rc.d 服务名 defaults，并且这样设置服务也就开机启动了
 update-rc.d test defaults
-
 # 删除
 # update-rc.d -f 服务名 remove
+
+# CtenOS下的操作
+chkconfig --add agent_server
+chkconfig agent_server on
 ```
 
 ### 启动、关闭、重启服务
 &ensp;&ensp;&ensp;&ensp;接下来就可以使用service命令去启动它了
 
 ```
+# service 方式
 # service 服务名 start
 # service 服务名 stop
 # service 服务名 start
-
 service test start
+
+# systemctl  方式
+systemctl start service
+systemctl stop service
+systemctl restart service
+systemctl status service
 ```
 
 ## 参考链接
 - [update-rc.d的具体用法](https://blog.csdn.net/xiongping_/article/details/50392908)
 - [在Ubuntu下添加自定义服务](https://blog.csdn.net/xkjcf/article/details/78698232)
+- [shell 判断文件夹或文件是否存在](https://www.cnblogs.com/37yan/p/6962563.html)
+[linux后台启动进程并记录进程ID](https://blog.csdn.net/u013066244/article/details/69562364)

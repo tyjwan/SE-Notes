@@ -3,6 +3,13 @@
 ### 软件的安装
 &ensp;&ensp;&ensp;&ensp;在Kali中好像apt不太好使了，不知道是deepin这方面的问题，但它有一个比较好用的替代：gdebi
 
+### 远程软件
+&ensp;&ensp;&ensp;&ensp;在Linux下有很多的东西支持不是太好，需要在Windows下才能使用，其中的一个解决的办法就是使用远程登录登录Windows（一般程序员都用自己的笔记本吧，没有两三天的电脑的程序员估计不存在吧）
+```
+# 这个软件可以，显示清晰可用，推荐。相应的Windows下使用免费的TightVNC效果不错
+apt install vinagre
+```
+
 ### google-chrome
 vim /usr/bin/google-chrome
 exec -a "$0" "$HERE/chrome" "$@" --user-data-dir --no-sandbox
@@ -53,6 +60,3 @@ exec /opt/sublime_text_3/sublime_text "$@"
 [Kali 2018 vmtools+更新源配置](https://blog.csdn.net/Fly_hps/article/details/79764428)
 [如何在 Kali Linux 中安装 Google Chrome 浏览器 ](https://linux.cn/article-8209-1.html)
 [Kali 2.0安装与使用指南 ](http://www.freebuf.com/sectool/95167.html)
-[Ubuntu16.04安装Chrome浏览器及解决root不能打开的问题](https://blog.csdn.net/s_sunnyy/article/details/79276480)
-[解决Ubuntu下Sublime Text 3无法输入中文](https://www.jianshu.com/p/bf05fb3a4709)
-[Ubuntu16.04 安装Sublime Text 3 并解决中文输入问题](https://blog.csdn.net/lu_embedded/article/details/79558280)
