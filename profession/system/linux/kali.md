@@ -1,6 +1,28 @@
 # Kali linux
 ***
-### 软件的安装
+## 系统的设置
+### 用户的添加
+&ensp;&ensp;&ensp;&ensp;在kali装好以后就一个root用户，有时候使用超级用户用点不太方便，也用点风险，比如建立SSH隧道啥的
+```
+adduser lw
+passwd lw
+```
+
+### 快捷键的设置
+&ensp;&ensp;&ensp;&ensp;在系统中Ctrl+ Alt+T打开终端没有了，需要自己设置一波。点击Windows建->输入setting->点击设置选项->选择设备->keyboard->自定义快捷键下面的+号，在弹出的设置框中进行设置即可。
+```
+# 打开终端的命令，填入第二个框中
+gnome-terminal
+```
+
+### 新建用户的终端问题
+&ensp;&ensp;&ensp;&ensp;新建用户以后会发现终端有点不太好使了，没有路径的显示、没有命令的自动补全，贼难用！
+```
+# 输入下面的命令，在输入  /bin/bash
+chsh
+```
+
+## 软件的安装
 &ensp;&ensp;&ensp;&ensp;在Kali中好像apt不太好使了，不知道是deepin这方面的问题，但它有一个比较好用的替代：gdebi
 
 ### 远程软件
@@ -60,3 +82,4 @@ exec /opt/sublime_text_3/sublime_text "$@"
 [Kali 2018 vmtools+更新源配置](https://blog.csdn.net/Fly_hps/article/details/79764428)
 [如何在 Kali Linux 中安装 Google Chrome 浏览器 ](https://linux.cn/article-8209-1.html)
 [Kali 2.0安装与使用指南 ](http://www.freebuf.com/sectool/95167.html)
+[Linux和Windows间的远程桌面访问](https://blog.csdn.net/u011054333/article/details/79905102)
