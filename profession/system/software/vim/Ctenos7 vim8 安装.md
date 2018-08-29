@@ -1,4 +1,4 @@
-# Linux vim8 安装
+# Ctenos7 vim8 安装
 ***
 ### 一、GitHub官网下载相应的安装包
 &ensp;&ensp;&ensp;&ensp;https://github.com/vim/vim/releases
