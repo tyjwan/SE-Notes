@@ -5,14 +5,15 @@
 
 ### 1.2 目录结构
 &ensp;&ensp;&ensp;&ensp;项目目录结构的规范性是很有必要的，一个好的项目结构应该如下
+pip freeze > requirements.txt
 ```
 # 比如项目的名称是：Test
-- Test/
-	- bin/
-		- test/
+- Foo/                       #项目名
+	- bin/                    #可执行文件目录
+		- test/               #可执行程序
 
-	- test/
-		- tests/
+	- foo/                   #主程序目录
+		- tests/             #测试代码目录
 			- __init__.py
 			- app.py
 		- __init__.py
