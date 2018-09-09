@@ -15,10 +15,10 @@ http://www.harding.motd.ca/autossh/autossh-1.4f.tgz
 ```
 # Client
 ssh-keygen -t rsa
-scp /root/.ssh/id_rsa.pub root@119.39.96.61:/root/.ssh/test_pub
+scp /root/.ssh/id_rsa.pub root@xxx.xx.xx.xx:/root/.ssh/test_pub
 
 # Server
-cat /root/.ssh/nssas_pub >> /root/.ssh/authorized_keys
+cat /root/.ssh/test_pub >> /root/.ssh/authorized_keys
 ```
 
 ### AutoSSH

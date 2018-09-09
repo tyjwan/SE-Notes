@@ -32,6 +32,7 @@
 ```
 
 ## 搭建 SS 代理
+### Ctenos
 ```
 yum update
 yum install python-pip
@@ -75,5 +76,9 @@ ssserver -c /etc/ss/config.json -d start
 }
 ```
 
+### Windows
+&ensp;&ensp;&ensp;&ensp;下载shadowsocks-windows：https://github.com/shadowsocks/shadowsocks-windows/releases，解压运行后，选择左下角中的图标点击启用系统带来即可，贼方便
+
 ## 参考链接
 - [Mac 搭建 AWS 代理服务器记录贴](https://zhuanlan.zhihu.com/p/33070734)
+- [阿里云搭建SS代理超详细教程！！！](阿里云搭建SS代理超详细教程！！！)
