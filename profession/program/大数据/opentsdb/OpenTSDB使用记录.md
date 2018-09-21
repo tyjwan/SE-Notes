@@ -1,16 +1,23 @@
 # OpenTSDB 使用记录
 ***
 ## CentOS
+*虚拟机直接NAT模式*
 ### docker镜像前置安装
 ```
 yum install openssh-clients -y
 yum install wget -y
+
+vim /etc/sysconfig/network-script/ifcfg-xxxx
+ONBOOT=yes
+GATEWAY=10.0.0.1
+DNS1=202.106.0.20
 ```
 
 ### Java安装
 &ensp;&ensp;&ensp;&ensp;从官网下载相应的rpm包进行安装即可,默认路径：/usr/bin/java
 ```
 scp -P 2822 root@119.39.96.61:/home/download/jdk-8u181-linux-x64.rpm ./
+yum localinstall xxxx
 ```
 
 ### HBASE安装
@@ -84,7 +91,7 @@ source /etc/profile
 ### openTSDB
 ```
 scp -P 2822 root@119.39.96.61:/home/download/opentsdb-2.3.1.noarch.rpm ./
-yum localinstll xxx
+yum localinstll xxx -y
 
 env COMPRESSION=NONE HBASE_HOME=/opt/hbase /usr/share/opentsdb/tools/create_table.sh
 
