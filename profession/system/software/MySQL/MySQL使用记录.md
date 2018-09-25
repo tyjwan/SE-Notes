@@ -5,6 +5,8 @@ create user share@'%' identified by 'password';
 set password for 'share'@'%'=password('share');
 grant select on bachang.index1 to share@'%' ;
 grant select on bachang.index2 to share@'%' ;
+revoke insert on bachang.attack_info from worker@'%';
+grant select on bachang.vulnerability to worker@'%';
 ```
 
 ## 参考链接

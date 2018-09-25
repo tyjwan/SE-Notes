@@ -15,7 +15,7 @@
 
 ## 好用的
 - [Sublime Text 3](https://www.sublimetext.com/)
-- [任务栏硬件监视工具(XMeters)](http://www.cncrk.com/downinfo/202717.html)
+- [任务栏硬件监视工具(XMeters)](https://entropy6.com/xmeters/download/)
 - [IObit Uninstaller](https://www.iplaysoft.com/iobit-uninstaller.html)
 - [OpenSSH for Windows](https://www.mls-software.com/opensshd.html)
 - [Download Anaconda Distribution](https://www.anaconda.com/download/)
