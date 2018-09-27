@@ -8,6 +8,7 @@
 #!/bin/bash
 ### BEGIN INIT INFO
 #
+# chkconfig:   2345 90 10
 # Provides:  location_server
 # Required-Start:   $local_fs  $remote_fs
 # Required-Stop:    $local_fs  $remote_fs

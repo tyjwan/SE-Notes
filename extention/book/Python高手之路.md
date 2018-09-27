@@ -1,5 +1,6 @@
 # 《Python高手之路》 阅读笔记
 ***
+## 第一章
 ### 1.1 Python版本问题
 &ensp;&ensp;&ensp;&ensp;python在十几年后将被舍弃，新的开发请使用python3
 
@@ -33,3 +34,15 @@ pip freeze > requirements.txt
 	- requirements.txt
 	- README
 ```
+
+## 第二章
+### 2.1 导入系统
+&ensp;&ensp;&ensp;&ensp;python的模块导入和sys息息相关，如果遇到导入问题，可用尝试使用sys进行解决。sys还可以导入费pyc的模块文件
+
+### 2.2 标准库
+&ensp;&ensp;&ensp;&ensp;有一些常用到的功能，在python的标准库中已经实现了，有时候没有必要重复的造轮子，在特定时候可以省去自己的很多麻烦和时间，特别是标准库中的multiprocessing，这些标准库有空自己需要整理和研究一波
+
+#### 任务：整理研究python3标准库
+
+### 2.6 管理API变化
+&ensp;&ensp;&ensp;&ensp;写代码是们艺术，对于不断调整和变化的部分我们应该给与相应的提示
