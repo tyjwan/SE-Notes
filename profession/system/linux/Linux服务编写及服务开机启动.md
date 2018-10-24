@@ -105,6 +105,12 @@ systemctl restart service
 systemctl status service
 ```
 
+## 编写rc.local文件
+```
+chmod +x /etc/rc.d/rc.local
+vi /etc/rc.d/rc.local
+```
+
 ## 参考链接
 - [update-rc.d的具体用法](https://blog.csdn.net/xiongping_/article/details/50392908)
 - [在Ubuntu下添加自定义服务](https://blog.csdn.net/xkjcf/article/details/78698232)
