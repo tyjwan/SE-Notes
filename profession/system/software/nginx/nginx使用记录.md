@@ -1,5 +1,12 @@
 # nginx 使用记录
 ***
+### 访问权限问题
+```
+user root
+
+chmod a+x xxxx
+```
+
 ### 配置不同路径访问不同的静态文件
 &ensp;&ensp;&ensp;&ensp;好像只能存在一个roo，另一个需要使用alias，例子如下：
 ```
@@ -28,4 +35,5 @@ server {
 ```
 
 ## 参考链接
-nginx配置访问图片路径以及html静态页面的调取方法：https://www.jb51.net/article/99305.htm
+- [nginx配置访问图片路径以及html静态页面的调取方法](https://www.jb51.net/article/99305.htm)
+- [nginx 403 Forbidden 排错记录](https://www.jianshu.com/p/e0dadb871894)

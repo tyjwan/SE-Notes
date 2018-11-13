@@ -17,5 +17,8 @@
 - [空间的清理](https://yq.aliyun.com/articles/272173)
 
 ## 参考链接
-[不加 sudo 执行 Docker 命令](http://www.markjour.com/article/docker-no-root.html)
-[阿里云docker仓库](https://dev.aliyun.com/search.html)
+- [不加 sudo 执行 Docker 命令](http://www.markjour.com/article/docker-no-root.html)
+- [阿里云docker仓库](https://dev.aliyun.com/search.html)
+- [Docker 这九个不同的应用场景](https://my.oschina.net/editorial-story/blog/1558880)
+- [Docker最佳实践：构建最小镜像](https://zhuanlan.zhihu.com/p/38552260)
+- [微容器：更小的，更轻便的Docker容器](http://dockone.io/article/1035)
