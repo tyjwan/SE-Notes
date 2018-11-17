@@ -1,1 +1,0 @@
-[python中如何判断一个变量的数据类型](http://blog.csdn.net/suofiya2008/article/details/5587996)
