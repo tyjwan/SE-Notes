@@ -1,0 +1,75 @@
+# Java Kafka
+***
+```
+<!-- kafka -->
+<dependency>
+    <groupId>org.apache.kafka</groupId>
+    <artifactId>kafka-clients</artifactId>
+    <version>0.11.0.0</version>
+</dependency>
+```
+
+```
+package util;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+
+import java.util.*;
+
+public class KafkaUtil {
+    public static KafkaConsumer<String, String> createConsumer(String topic) {
+        Properties properties = new Properties();
+        properties.put("bootstrap.servers", PropertiesLoader.get("kafka.host"));
+        properties.put("group.id", "group-1");
+        properties.put("enable.auto.commit", "false");
+        properties.put("auto.commit.interval.ms", "1000");
+        properties.put("auto.offset.reset", "earliest");
+        properties.put("session.timeout.ms", "30000");
+        properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+
+        KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<String, String>(properties);
+        kafkaConsumer.subscribe(Arrays.asList(topic));
+        return kafkaConsumer;
+    }
+
+    public static List<Map> readMessage(KafkaConsumer<String, String> kafkaConsumer, int timeout) {
+        List<Map> result = new ArrayList<Map>();
+        ConsumerRecords<String, String> records = kafkaConsumer.poll(timeout);
+        for (ConsumerRecord<String, String> record : records) {
+            String value = record.value();
+            kafkaConsumer.commitAsync();
+            result.add((Map) new Gson().fromJson(value, new TypeToken<HashMap>() {}.getType()));
+        }
+        return result;
+    }
+
+    public static KafkaProducer<String, String> createProducer() {
+        Properties properties = new Properties();
+        properties.put("bootstrap.servers", PropertiesLoader.get("kafka.host"));
+        properties.put("acks", "all");
+        properties.put("retries", 0);
+        properties.put("batch.size", 16384);
+        properties.put("linger.ms", 1);
+        properties.put("buffer.memory", 33554432);
+        properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        return new KafkaProducer<String, String>(properties);
+    }
+
+    public static void send(KafkaProducer<String, String> producer, String topic, String message) {
+        producer.send(new ProducerRecord<String, String>(topic, message));
+    }
+}
+```
+
+## 参考链接
+- [java 实现kafka消息生产者和消费者](https://blog.csdn.net/beExcellentOne/article/details/53641953)
+- [kafka（三）—Kafka的Java代码示例和配置说明](https://segmentfault.com/a/1190000015886487)
+- [Kafka - 偏移量提交](https://blog.csdn.net/u011669700/article/details/80053313)
