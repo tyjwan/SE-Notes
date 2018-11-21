@@ -1,6 +1,7 @@
 # Java Kafka
 ***
-```
+## 示例代码
+```java
 <!-- kafka -->
 <dependency>
     <groupId>org.apache.kafka</groupId>
@@ -9,7 +10,7 @@
 </dependency>
 ```
 
-```
+```java
 package util;
 
 import com.google.gson.Gson;
@@ -69,7 +70,12 @@ public class KafkaUtil {
 }
 ```
 
+## 使用心得
+### 总是读取最老的消息
+&ensp;&ensp;&ensp;&ensp;可能是group-id的问题，新起一个group-id名称
+
 ## 参考链接
 - [java 实现kafka消息生产者和消费者](https://blog.csdn.net/beExcellentOne/article/details/53641953)
 - [kafka（三）—Kafka的Java代码示例和配置说明](https://segmentfault.com/a/1190000015886487)
 - [Kafka - 偏移量提交](https://blog.csdn.net/u011669700/article/details/80053313)
+- [Kafka系列（四）Kafka消费者：从Kafka中读取数据](http://www.dengshenyu.com/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2017/11/14/kafka-consumer.html)  
