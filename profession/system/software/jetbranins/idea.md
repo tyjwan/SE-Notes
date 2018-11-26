@@ -7,3 +7,6 @@
 - MyBatisCodeHelperPro：https://plugins.jetbrains.com/plugin/9837-mybatiscodehelperpro，mybatis代码自动生成插件，大部分单表操作的代码可自动生成 减少重复劳动 大幅提升效率
 - Rainbow Brackets：https://plugins.jetbrains.com/plugin/10080-rainbow-brackets，彩虹颜色的括号 看着很舒服 敲代码效率变高
 -  Translation:https://plugins.jetbrains.com/plugin/8579-translation,最好用的翻译插件，功能很强大，界面很漂亮
+
+## 设置类
+- [IDEA一定要改的8条配置](https://mp.weixin.qq.com/s/dfZrFuoih94Puu6dt_AxDA)
