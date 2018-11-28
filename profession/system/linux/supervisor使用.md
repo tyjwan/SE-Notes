@@ -65,3 +65,7 @@ chmod a+x /etc/rc.local
 # 在文件中加入下面的内容
 /usr/bin/supervisord -c /etc/supervisord.conf
 ```
+
+## 问题
+### 启动Python程序日志无输出问题
+&ensp;&ensp;&ensp;&ensp;在命令行后面加 -u 选项强制刷新输出缓存即可： python -u xxx.py
