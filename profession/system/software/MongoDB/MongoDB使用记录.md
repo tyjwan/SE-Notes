@@ -31,6 +31,8 @@ mycol
 mycollection
 newcollection
 >db.mycollection.drop()
+>db.users.find().count()
+>db.col.createIndex({"description":-1})
 true
 ```
 
