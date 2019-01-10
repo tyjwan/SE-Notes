@@ -63,3 +63,7 @@ mv otunnel_linux_amd64 /opt/otunnel
 ```
 /opt/otunnel connect 119.39.96.61:40007 -s longlongsecret -t 'r:10.0.0.46:22::40008'
 ```
+
+## 参考链接
+- [https://dl.ooclab.com/otunnel/1.3.1/](https://dl.ooclab.com/otunnel/1.3.1/)
+- [对称的安全隧道工具 otunnel](https://www.oschina.net/p/otunnel)

@@ -32,6 +32,9 @@ http://服务器地址:9001
 
 ## 配置说明
 ```
+# 如果找不到配置文件，可以使用下面的命令进行生成
+echo_supervisord_conf > supervisord/supervisord.conf 
+
 # 配置文件 /etc/supervisord.conf，更多详细使用文件中有说明
 
 # 在文件的末尾或任意位置，写入下面的配置内容即可命名，以关联分析代码为例

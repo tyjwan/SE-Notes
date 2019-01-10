@@ -94,6 +94,9 @@ storm.health.check.dir: "healthchecks"
 storm.health.check.timeout.ms: 5000
 ```
 
+- /opt/apache-storm-1.2.2/bin/storm supervisor
+- /opt/apache-storm-1.2.2/bin/storm nimbus
+
 - 将一天机器上配置好的storm整个文件夹复制到其他的集群机器上
 - 将其启动写入supervisor或deamon模式进行启动
 
@@ -101,6 +104,13 @@ storm.health.check.timeout.ms: 5000
 - jsp命令可以查看
 - /root/enviroment/目录下
 
+## 运行
+### 查看日志
+- 用storm jar ...将项目提交给storm集群后，想查看本项目的log信息，要到supervisor机器的：storm安装路径/logs/worker-number.log（其中的number视实际情况而定）中查看。
+- 如果是用daemontools启动的storm，daemontools监控的目录是/service/storm，那么到/service/storm/logs中查看worker-number.log日志。
+
 ## 参考链接
 - [https://blog.csdn.net/shirdrn/article/details/7183503](https://blog.csdn.net/shirdrn/article/details/7183503)
 - [Setting up a Storm Cluster](http://storm.apache.org/releases/2.0.0-SNAPSHOT/Setting-up-a-Storm-cluster.html)
+- [查看storm运行日志](https://blog.csdn.net/asdfsadfasdfsa/article/details/60778728)
+- [storm集群的配置与启动](https://blog.csdn.net/loloxiaoz3/article/details/19294289)
