@@ -38,4 +38,5 @@ true
 
 ## 参考链接
 - [MongoDB删除集合](https://www.yiibai.com/mongodb/mongodb_drop_collection.html)
-- 
+- [MongoDB 查询文档](http://www.runoob.com/mongodb/mongodb-query.html)
+- [MongoDB更换数据库路径](https://www.jianshu.com/p/c43d7cf49052)

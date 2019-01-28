@@ -1,6 +1,6 @@
 # Java MongoDB
 ***
-```
+```java
 package cn.nudt681.nssas.utils;
 
 import com.alibaba.fastjson.JSON;
@@ -121,3 +121,9 @@ public class MongoDBUtil {
 - [java MongoDB查询（一）简单查询](https://www.cnblogs.com/luoaz/p/4691639.html)
 - [java MongoDB查询（二）复杂查询](https://www.cnblogs.com/luoaz/p/4692716.html)
 - [java中mongodb的查询及排序](https://blog.csdn.net/aboycoder/article/details/48358365)
+- [MongoDB Driver Tutorials](http://mongodb.github.io/mongo-java-driver/3.9/driver/tutorials/connect-to-mongodb/)
+- [设计模式（二）单例模式的七种写法](https://blog.csdn.net/itachi85/article/details/50510124)
+- [MongoDB查询操作限制返回字段的方法](https://blog.csdn.net/hqzxsc2006/article/details/47447997)
+- [Java操作MongoDB数据库方法详解](https://www.jb51.net/article/133539.htm)
+- [Java通过mongo-java-driver-3.0+分页查询mongodb详解](http://www.voidcn.com/article/p-kaoovgif-bqs.html)
+- [MongoDB分页的Java实现和分页需求的思考](https://www.cnblogs.com/woshimrf/p/mongodb-pagenation-performance.html)

@@ -230,5 +230,11 @@ public class SafetyAttackWebSocket implements WebSocketConfigurer {
 ```
 
 ### 测试连接
-- 可以使用页面的测试：http://www.blue-zero.com/WebSocket/
+- [可以使用页面的测试](http://www.blue-zero.com/WebSocket/)
 - 输入：ws://127.0.0.1:8000/safetyAttackWebsocke，进行连接即可
+
+## 参考链接
+- [spring配置websocket并实现群发/单独发送消息](https://blog.csdn.net/u014520745/article/details/62046396)
+- [springboot整合websocket实现一对一消息推送和广播消息推送](https://segmentfault.com/a/1190000014862001)
+- [SpringBoot-WebSocket广播消息+单点消息(指定用户发送消息)](https://blog.csdn.net/u014042066/article/details/76702120)
+- [WebSocket API](https://docs.spring.io/spring/docs/4.3.3.RELEASE/spring-framework-reference/htmlsingle/#websocket)
