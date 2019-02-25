@@ -1,6 +1,7 @@
 # kafka 入门使用记录
 ***
 /root/enviroment/kafka_2.12-1.0.0/bin/kafka-console-consumer.sh --zookeeper node28:12181 --topic netflow --from-beginning
+bin/kafka-console-consumer.sh --bootstrap-server localhost:2181 --topic test
 
 ## kafka 服务安装
 ### 单例模式

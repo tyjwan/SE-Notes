@@ -36,6 +36,26 @@ newcollection
 true
 ```
 
+### 排序
+
+### 索引
+```sh
+# 语法中 Key 值为你要创建的索引字段，1 为指定按升序创建索引，如果你想按降序来创建索引指定为 -1 即可。
+db.collection.createIndex(keys, options)
+
+# 查看集合索引
+db.col.getIndexes()
+
+# 查看集合索引大小
+db.col.totalIndexSize()
+
+# 删除集合所有索引
+db.col.dropIndexes()
+
+# 删除集合指定索引
+db.col.dropIndex("索引名称")
+```
+
 ## 参考链接
 - [MongoDB删除集合](https://www.yiibai.com/mongodb/mongodb_drop_collection.html)
 - [MongoDB 查询文档](http://www.runoob.com/mongodb/mongodb-query.html)
