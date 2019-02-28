@@ -56,6 +56,15 @@ db.col.dropIndexes()
 db.col.dropIndex("索引名称")
 ```
 
+## 不同数据库之间表复制
+```
+db.threatTest.find({'unit_id': '90000001'}).forEach(function(d){ db.getSiblingDB('my_visual')['threat'].insert(d); });
+db.comprehensiveIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['comprehensiveIndex'].insert(d); });
+db.basedIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['basedIndex'].insert(d); });
+db.fragileIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['fragileIndex'].insert(d); });
+db.threadIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['threadIndex'].insert(d); });
+```
+
 ## 参考链接
 - [MongoDB删除集合](https://www.yiibai.com/mongodb/mongodb_drop_collection.html)
 - [MongoDB 查询文档](http://www.runoob.com/mongodb/mongodb-query.html)

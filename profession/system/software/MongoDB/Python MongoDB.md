@@ -1,6 +1,6 @@
 # Python MongoDB
 ***
-```
+```python
 #!/usr/bin/env python
 # @Time    : 2018/11/19 11:46
 # @Author  : LiuWei

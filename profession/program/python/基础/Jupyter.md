@@ -18,6 +18,7 @@ python3 -m ipykernel install --user
 ```
 
 ```sh
+jupyter netobook
 http://localhost:8888/tree
 ```
 
