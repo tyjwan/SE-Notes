@@ -56,6 +56,15 @@ db.col.dropIndexes()
 db.col.dropIndex("索引名称")
 ```
 
+### 去重统计
+```sh
+db.collection_name.distinct(field,query,options)
+db.collection_name.distinct(field,query,options).length
+
+field -----指定要返回的字段(string)
+query-----条件查询(document)
+```
+
 ## 不同数据库之间表复制
 ```
 db.threatTest.find({'unit_id': '90000001'}).forEach(function(d){ db.getSiblingDB('my_visual')['threat'].insert(d); });
@@ -69,3 +78,5 @@ db.threadIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['thr
 - [MongoDB删除集合](https://www.yiibai.com/mongodb/mongodb_drop_collection.html)
 - [MongoDB 查询文档](http://www.runoob.com/mongodb/mongodb-query.html)
 - [MongoDB更换数据库路径](https://www.jianshu.com/p/c43d7cf49052)
+- [MongoDB中distinct的详细用法](https://blog.csdn.net/skh2015java/article/details/55667829)
+- [MongoDB在不同主机间复制数据库和集合](https://blog.csdn.net/wulex/article/details/83479516)

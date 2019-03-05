@@ -1,5 +1,7 @@
 # MongoDB
 ***
+## Code
+### 单例实现
 ```java
 package cn.nssas.eelantech.utils;
 
@@ -239,6 +241,7 @@ public class MongoDBUtil {
 }
 ```
 
+### 测试代码
 ```java
 package utils;
 
@@ -255,6 +258,12 @@ import static org.junit.Assert.assertEquals;
  * MongoDBUtil 测试
  */
 public class MongoDBUtilTest {
+    // 关闭MongoDB的debug输出日志
+    static Logger root = (Logger) LoggerFactory
+            .getLogger(Logger.ROOT_LOGGER_NAME);
+    static {
+        root.setLevel(Level.INFO);
+    }
 
     @Test
     public void testDrop() {
@@ -433,3 +442,4 @@ public class MongoDBUtilTest {
 - [Create Indexes](http://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/indexes/)
 - [Java实现对MongoDB的AND、OR和IN操作](https://blog.csdn.net/mydeman/article/details/6652387)
 - [$ne不等于](http://cw.hubwiz.com/card/c/543b2f3cf86387171814c026/1/1/6/)
+- [How to disable mongoDB java driver logging?](https://stackoverflow.com/questions/30137564/how-to-disable-mongodb-java-driver-logging)
