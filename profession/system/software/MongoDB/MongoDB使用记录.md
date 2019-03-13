@@ -18,6 +18,10 @@ chkconfig mongod on
 
 # 修改能被外界访问
 vim /etc/mongodb.conf
+
+# 启动和开机启动设置
+systemctl start mongod
+systemctl enable mongod
 ```
 
 ## 操作
@@ -66,7 +70,7 @@ query-----条件查询(document)
 ```
 
 ## 不同数据库之间表复制
-```
+```sh
 db.threatTest.find({'unit_id': '90000001'}).forEach(function(d){ db.getSiblingDB('my_visual')['threat'].insert(d); });
 db.comprehensiveIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['comprehensiveIndex'].insert(d); });
 db.basedIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['basedIndex'].insert(d); });
@@ -74,9 +78,16 @@ db.fragileIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['fr
 db.threadIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['threadIndex'].insert(d); });
 ```
 
+## 数据库复制
+```sh
+db.copyDatabase("cx_tag","cx_tag","127.0.0.1:27017");
+```
+
 ## 参考链接
+- [https://robomongo.org/](https://robomongo.org/)
 - [MongoDB删除集合](https://www.yiibai.com/mongodb/mongodb_drop_collection.html)
 - [MongoDB 查询文档](http://www.runoob.com/mongodb/mongodb-query.html)
 - [MongoDB更换数据库路径](https://www.jianshu.com/p/c43d7cf49052)
 - [MongoDB中distinct的详细用法](https://blog.csdn.net/skh2015java/article/details/55667829)
 - [MongoDB在不同主机间复制数据库和集合](https://blog.csdn.net/wulex/article/details/83479516)
+- [mongodb——复制数据库和表](https://blog.csdn.net/hh12211221/article/details/78900098)

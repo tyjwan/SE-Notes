@@ -6,6 +6,7 @@ yum install -y pcre
 yum install -y pcre-devel
 yum install -y openssl-devel
 yum install epel-release
+```
 
 ### 访问权限问题
 ```
@@ -22,6 +23,12 @@ server {
         listen       [::]:80 default_server;
         server_name  _;
         #root         /usr/share/nginx/html;
+
+        #websocket
+        map $http_upgrade $connection_upgrade {
+            default upgrade;
+            '' close;
+        }
 
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
