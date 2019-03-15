@@ -69,7 +69,7 @@ field -----指定要返回的字段(string)
 query-----条件查询(document)
 ```
 
-## 不同数据库之间表复制
+### 不同数据库之间表复制
 ```sh
 db.threatTest.find({'unit_id': '90000001'}).forEach(function(d){ db.getSiblingDB('my_visual')['threat'].insert(d); });
 db.comprehensiveIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['comprehensiveIndex'].insert(d); });
@@ -78,9 +78,14 @@ db.fragileIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['fr
 db.threadIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['threadIndex'].insert(d); });
 ```
 
-## 数据库复制
+### 数据库复制
 ```sh
 db.copyDatabase("cx_tag","cx_tag","127.0.0.1:27017");
+```
+
+### sort()方法的size限制
+```sh
+db.adminCommand({setParameter:1, internalQueryExecMaxBlockingSortBytes:335544320})
 ```
 
 ## 参考链接
