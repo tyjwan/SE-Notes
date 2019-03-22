@@ -22,3 +22,4 @@
 - [Docker 这九个不同的应用场景](https://my.oschina.net/editorial-story/blog/1558880)
 - [Docker最佳实践：构建最小镜像](https://zhuanlan.zhihu.com/p/38552260)
 - [微容器：更小的，更轻便的Docker容器](http://dockone.io/article/1035)
+- [docker for windows 设置aliyun加速以及改变pull镜像位置](https://blog.csdn.net/gx947791229/article/details/76512660)

@@ -71,7 +71,7 @@ query-----条件查询(document)
 
 ### 不同数据库之间表复制
 ```sh
-db.threatTest.find({'unit_id': '90000001'}).forEach(function(d){ db.getSiblingDB('my_visual')['threat'].insert(d); });
+db.threat.find({'unit_id': '90000001'}).forEach(function(d){ db.getSiblingDB('test_center')['threat'].insert(d); });
 db.comprehensiveIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['comprehensiveIndex'].insert(d); });
 db.basedIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['basedIndex'].insert(d); });
 db.fragileIndexTest.find().forEach(function(d){ db.getSiblingDB('my_visual')['fragileIndex'].insert(d); });
@@ -88,6 +88,11 @@ db.copyDatabase("cx_tag","cx_tag","127.0.0.1:27017");
 db.adminCommand({setParameter:1, internalQueryExecMaxBlockingSortBytes:335544320})
 ```
 
+### 模糊查询
+```sh
+db.getCollection('unit').find({"target":/192.168.169.0.24.*/})
+```
+
 ## 参考链接
 - [https://robomongo.org/](https://robomongo.org/)
 - [MongoDB删除集合](https://www.yiibai.com/mongodb/mongodb_drop_collection.html)
@@ -96,3 +101,4 @@ db.adminCommand({setParameter:1, internalQueryExecMaxBlockingSortBytes:335544320
 - [MongoDB中distinct的详细用法](https://blog.csdn.net/skh2015java/article/details/55667829)
 - [MongoDB在不同主机间复制数据库和集合](https://blog.csdn.net/wulex/article/details/83479516)
 - [mongodb——复制数据库和表](https://blog.csdn.net/hh12211221/article/details/78900098)
+- [mongodb 数据库like语句查询](https://blog.csdn.net/zhouyan8603/article/details/6825834)
