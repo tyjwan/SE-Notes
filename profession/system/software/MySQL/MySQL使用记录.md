@@ -9,6 +9,8 @@ revoke insert on bachang.attack_info from worker@'%';
 grant select on bachang.vulnerability to worker@'%';
 
 delete from 表名;
+
+drop database databasename;
 ```
 
 ## 参考链接

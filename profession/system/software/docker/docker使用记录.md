@@ -16,6 +16,10 @@
 ## 使用中需要注意的问题
 - [空间的清理](https://yq.aliyun.com/articles/272173)
 
+## 常规操作
+### 进入正在运行中的容器
+- docker exec -ti dockernameorid /bin/bash
+
 ## 参考链接
 - [不加 sudo 执行 Docker 命令](http://www.markjour.com/article/docker-no-root.html)
 - [阿里云docker仓库](https://dev.aliyun.com/search.html)
