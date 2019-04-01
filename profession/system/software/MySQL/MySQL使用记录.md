@@ -14,5 +14,6 @@ drop database databasename;
 ```
 
 ## 参考链接
-mysql-创建用户并授权，设置允许远程连接：https://www.cnblogs.com/gpdm/p/6492449.html
-创建MySQL用户 赋予某指定库表的权限：https://www.cnblogs.com/wuyifu/p/7580494.html
+- [mysql-创建用户并授权，设置允许远程连接](https://www.cnblogs.com/gpdm/p/6492449.html)
+- [创建MySQL用户 赋予某指定库表的权限](https://www.cnblogs.com/wuyifu/p/7580494.html)
+- [Centos 7 安装 MySQL](https://www.jianshu.com/p/7cccdaa2d177)

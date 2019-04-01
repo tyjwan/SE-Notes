@@ -54,3 +54,4 @@ server {
 - [Nginx安装配置](https://www.jianshu.com/p/a195c2f42e15)
 - [How To Install Nginx on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7)
 - [利用nginx搭建小型的文件服务器](https://www.jianshu.com/p/a9363379f23b)
+- [snginx修改上传文件大小限制](https://blog.csdn.net/bruce128/article/details/9665503)
