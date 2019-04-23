@@ -64,3 +64,4 @@ sslocal -c /etc/shadowsocks.json
 
 ## 问题修复参考
 - [AttributeError: /usr/lib/x86_64-Linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup](http://blog.csdn.net/blackfrog_unique/article/details/60320737)
+- [使用 Vultr 搭建 ShadowSocks /VPS搭建SS（超详细）](https://github.com/sirzdy/shadowsocks)

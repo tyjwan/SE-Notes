@@ -25,6 +25,18 @@ source /etc/profile
 set mouse=a 
 ```
 
+### spf13-vim 配置安装问题
+```sh
+vim /root/.vimbundle
+Replace vundle plugin 'amirh/HTML-AutoCloseTag' with 'heracek/HTML-AuCloseTag
+Plugin 'heracek/HTML-AutoCloseTag', {'name': 'HTML-AutoCloseTag2'}
+UnBundle 'amirh/HTML-AutoCloseTag'
+vim +PluginInstall +qall
+```
+
 ## 参考链接
 - [centos7下编译安装vim8，并支持python3](https://blog.csdn.net/geerniya/article/details/79686408)
 - [vim中执行shell命令小结](vim中执行shell命令小结)
+- [spf13/spf13-vim](https://github.com/spf13/spf13-vim)
+- [andre3k1/spf13-vim](https://github.com/andre3k1/spf13-vim/commit/6950b831e38400213be89ebbf6dd0f0f6b7f9d8f)
+- [vim插件管理器：Vundle的介绍及安装（很全）](https://blog.csdn.net/zhangpower1993/article/details/52184581)
