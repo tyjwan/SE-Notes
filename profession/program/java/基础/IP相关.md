@@ -251,3 +251,5 @@ public class IpTest {
 - [java判断某个ip是否在一个网段内 ip/mask IP+掩码](https://blog.csdn.net/yinxianluo/article/details/51208323)
 - [判断两个IP是否在同一网段](https://blog.csdn.net/dqchouyang/article/details/78276956)
 - [java实现 IP/掩码位 转换 ip段范围](https://blog.csdn.net/whatday/article/details/79168699)
+- [GeoLite2 Free Downloadable Databases](https://dev.maxmind.com/geoip/geoip2/geolite2/)
+- [GeoIP2 Java API](https://maxmind.github.io/GeoIP2-java/)

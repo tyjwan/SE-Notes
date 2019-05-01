@@ -9,3 +9,12 @@ yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 yum update
 yum install -y python36u python36u-libs python36u-devel python36u-pip
 ```
+
+## python2 pip安装
+```sh
+yum -y install epel-release
+yum install python-pip
+```
+
+## 参考链接
+- [centos7.2下安装pip](https://blog.csdn.net/wan_zaiyunduan/article/details/70833682)

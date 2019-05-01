@@ -4,6 +4,7 @@
 - ESLint
 - Vetur
 
+
 ## vue-cli构建
 *只能本地进行访问问题：在根目录下面的/config/index.js文件 修改host 为ip地址即可*
 ```
