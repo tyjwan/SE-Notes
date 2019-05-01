@@ -342,8 +342,6 @@ public class MyUserDetailService implements UserDetailsService {
 }
 ```
 
-vultr
-
 ## 参考链接
 - [spring security ajax登录及返回](https://segmentfault.com/a/1190000012140889)
 - [Spring Boot Security Starter » 2.1.4.RELEASE](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security/2.1.4.RELEASE)

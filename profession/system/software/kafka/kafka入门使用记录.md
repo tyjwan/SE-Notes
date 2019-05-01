@@ -5,10 +5,10 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:2181 --topic test
 
 ## kafka 服务安装
 ### 单例模式
-- wget http://mirror.bit.edu.cn/apache/kafka/2.1.0/kafka_2.11-2.1.0.tgz
+- wget http://mirror.bit.edu.cn/apache/kafka/2.2.0/kafka_2.12-2.2.0.tgz
 - tar zxvf xxxxx
-- bin/kafka-server-start.sh config/server.properties
 - vim /home/disk/software/kafka_2.11-2.1.0/config/server.properties: advertised.listeners=PLAINTEXT://x.x.x.x:9092
+- bin/kafka-server-start.sh config/server.properties
 
 ### python kafka安装
 ```sh

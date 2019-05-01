@@ -5,6 +5,12 @@
 - git
 - MongoDB
 
+```sh
+curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+yum install nodejs -y
+npm install pm2@latest -g
+```
+
 ## 运行
 - /usr/local/node-v8.9.3-linux-x64/bin/pm2 start server/app.js
 

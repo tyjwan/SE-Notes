@@ -15,7 +15,22 @@ service iptables restart
 
 ; 查看规则
 cat /etc/sysconfig/iptables
+
+yum install iptables-services
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+
+iptables -I INPUT -s 185.10.68.91 -j DROP
+185.10.68.91
+iptables -I INPUT -s master.clminer.ru -j DROP
+service iptables save
+service iptables restart
+
+-A IN_public_allow -p tcp -m tcp --dport 22 -m conntrack --ctstate NEW -j ACCEPT
+-A IN_public_allow -p tcp -m tcp --dport 29001 -m conntrack --ctstate NEW -j ACCEPT
+-A IN_public_allow -p tcp -m tcp --dport 29002 -m conntrack --ctstate NEW -j ACCEPT
 ```
 
 ## 参考链接
 - [Linux通过iptables端口转发访问内网服务器上的内网服务](http://hi.ktsee.com/635.html)
+- [centos下配置防火墙端口失败](https://blog.csdn.net/taiyang1987912/article/details/40189371)
