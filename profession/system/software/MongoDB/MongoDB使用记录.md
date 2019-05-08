@@ -93,6 +93,20 @@ db.adminCommand({setParameter:1, internalQueryExecMaxBlockingSortBytes:335544320
 db.getCollection('unit').find({"target":/192.168.169.0.24.*/})
 ```
 
+### 导入导出
+
+```shell
+mongoimport -h 我的IP --port 端口 -d 数据库名 -c 表名 -u 帐号 -p 密码 --upsert /usr/share/nginx/html/xxx.json --authenticationDatabase admin
+  
+# 导入json
+mongoimport -h 172.19.104.18 --port 20017 -d testdb -c testcol -u mytest -p 12345 --upsert /tmp/test.json --authenticationDatabase testdb
+  
+# 导出数据库
+mongodump -h 172.19.104.18 --port 20017 -u mytest -p 12345 -d testdb -o /tmp --authenticationDatabase testdb
+# 导出表
+mongoexport -h 172.19.104.18 --port 20017 -u mytest -p 12345 -d testdb -c testcol -o /tmp/test.json --authenticationDatabase testdb
+```
+
 ## 参考链接
 - [https://robomongo.org/](https://robomongo.org/)
 - [MongoDB删除集合](https://www.yiibai.com/mongodb/mongodb_drop_collection.html)

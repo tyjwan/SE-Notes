@@ -30,6 +30,7 @@ cp config/server.properties config/sasl-server.properties
 vim config/sasl-server.properties
 
 # 在末尾添加
+# 遇到外网端口不放连接的情况,需要直接判断外网ip和对应的开发的外网端口,好像topic自动创建会失效
 advertised.listeners=SASL_PLAINTEXT://10.0.0.51:9092
 listeners=SASL_PLAINTEXT://10.0.0.51:9092
 security.inter.broker.protocol=SASL_PLAINTEXT
@@ -68,6 +69,10 @@ KafkaClient {
 ### 生产者配置文件修改
 ```sh
 cp ./config/producer.properties ./config/sasl-producer.properties
+vim ./config/sasl-producer.properties
+
+#修改bootstrap.servers
+bootstrap.servers=10.0.0.51:9092
 
 # 在末尾添加
 security.protocol=SASL_PLAINTEXT
@@ -117,6 +122,9 @@ KafkaClient {
 cp ./config/consumer.properties ./config/sasl-consumer.properties
 vim ./config/sasl-consumer.properties
 
+#修改bootstrap.servers
+bootstrap.servers=10.0.0.51:9092
+
 # 末尾添加
 security.protocol=SASL_PLAINTEXT
 sasl.mechanism=PLAIN
@@ -140,23 +148,31 @@ fi
 exec $(dirname $0)/kafka-run-class.sh -Djava.security.auth.login.config=$(dirname $0)/../config/jaas-kafka-consumer.conf kafka.tools.ConsoleConsumer "$@"
  ```
 
+## 集群配置
+可以复制整个zookeeper和kafka的文件夹,修改配置文件的中kafka配置文件的broken.id和zookeeper的myid文件内容
+
 ## 安全验证后使用的生产和消费命令
-./bin/sasl-kafka-server-start.sh ./config/sasl-server.properties
-bin/sasl-kafka-console-producer.sh --broker-list 119.39.96.61:40006 --topic test --producer.config config/sasl-producer.properties
-bin/sasl-kafka-console-consumer.sh --bootstrap-server 119.39.96.61:40006 --topic threat --consumer.config config/sasl-consumer.properties
-bin/sasl-kafka-console-consumer.sh --bootstrap-server 172.19.104.19:40006 --topic test --consumer.config config/sasl-consumer.properties
+- /usr/local/kafka/bin/sasl-kafka-server-start.sh -daemon /usr/local/kafka/config/sasl-server.properties
+
+- /usr/local/kafka/bin/sasl-kafka-console-producer.sh --broker-list 172.19.104.18:9092,172.19.104.19:9092,172.19.104.21:9092 --topic test --producer.config /usr/local/kafka/config/sasl-producer.properties
+
+- /usr/local/kafka/bin/sasl-kafka-console-consumer.sh --bootstrap-server 172.19.104.18:9092,172.19.104.19:9092,172.19.104.21:9092 --topic test --consumer.config /usr/local/kafka/config/sasl-consumer.properties
+
+- /usr/local/kafka/bin/kafka-topics.sh --list --zookeeper 172.19.104.18:2181,172.19.104.19:2181,172.19.104.21:2181
+
+- /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper 172.19.104.18:2181,172.19.104.19:2181,172.19.104.21:2181 --topic test1 --replication-factor 2 --partitions 3
 
 ## 编程调用
 ### Python
 ```python
 # 消费者
-consumer = KafkaConsumer(bootstrap_servers='119.39.96.61:40006', security_protocol="SASL_PLAINTEXT", sasl_mechanism='PLAIN', sasl_plain_username='alice', sasl_plain_password='alice')
+consumer = KafkaConsumer(bootstrap_servers='172.19.104.18:9092,172.19.104.19:9092,172.19.104.21:9092', security_protocol="SASL_PLAINTEXT", sasl_mechanism='PLAIN', sasl_plain_username='alice', sasl_plain_password='alice')
 consumer.subscribe(["test"])
 for msg in consumer:
     print(str(msg[6], encoding="utf-8"))
 
 # 生产者
-producer = KafkaProducer(bootstrap_servers='119.39.96.61:40006', security_protocol="SASL_PLAINTEXT", sasl_mechanism='PLAIN', sasl_plain_username='alice', sasl_plain_password='alice')
+producer = KafkaProducer(bootstrap_servers='172.19.104.18:9092,172.19.104.19:9092,172.19.104.21:9092', security_protocol="SASL_PLAINTEXT", sasl_mechanism='PLAIN', sasl_plain_username='alice', sasl_plain_password='alice')
 msg = {"test": "test"}
 producer.send("test", bytes(str(msg).replace("'", '"'), "utf-8"))
 time.sleep(1)
@@ -222,4 +238,3 @@ time.sleep(1)
 - [Kafka常用命令(带SASL权限版)](https://blog.csdn.net/u010416101/article/details/81165578)
 - [Kafka 0.10.0 SASL/PLAIN身份认证及权限实现](https://www.jianshu.com/p/102606f8a795)
 - [Kakfa-SASL身份验证登陆](http://www.voidcn.com/article/p-vkewulnr-bqg.html)
-- 
