@@ -8,6 +8,9 @@
 
 ## 使用方式
 ```sh
+yum -y install epel-release
+yum install python-pip -y
+
 # 安装
 pip install supervisor
 
@@ -33,7 +36,7 @@ http://服务器地址:9001
 ## 配置说明
 ```
 # 如果找不到配置文件，可以使用下面的命令进行生成
-echo_supervisord_conf > supervisord/supervisord.conf 
+echo_supervisord_conf > /etc/supervisord.conf
 
 # 配置文件 /etc/supervisord.conf，更多详细使用文件中有说明
 
@@ -68,6 +71,9 @@ chmod a+x /etc/rc.local
 # 在文件中加入下面的内容
 /usr/bin/supervisord -c /etc/supervisord.conf
 ```
+
+## 多配置文件
+同include的机制，在最后开启include，并添加自己的配置文件路径，在自己的配置文件中只需要写program部分
 
 ## 问题
 ### 启动Python程序日志无输出问题
