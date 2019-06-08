@@ -13,6 +13,23 @@ iptables -t nat -D POSTROUTING -d 172.19.104.19/32 -p tcp -j SNAT --to-source 17
 service iptables save
 service iptables restart
 
+b.不同端口转发
+; 添加
+iptables -t nat -A PREROUTING -p tcp -i enp6s0 --dport 443 -j DNAT --to 172.19.104.28:27017
+iptables -t nat -A POSTROUTING -j MASQUERADE
+service iptables save
+service iptables restart
+
+; 删除
+iptables -t nat -D PREROUTING -p tcp -i enp6s0 --dport 443 -j DNAT --to 172.19.104.28:27017
+iptables -t nat -D POSTROUTING -j MASQUERADE
+service iptables save
+service iptables restart
+
+; 保存并生效
+service iptables save
+service iptables restart
+
 ; 查看规则
 cat /etc/sysconfig/iptables
 
