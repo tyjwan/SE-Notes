@@ -261,6 +261,7 @@ print(np.sort(a, 0))
 ```
 
 ## 参考资料
+- 建立了一个jupyterlab的GitHub工程,可以下载运行:[https://github.com/lw1243925457/BigDataLearn](https://github.com/lw1243925457/BigDataLearn)
 - 极客时间:数据分析实战45讲,感兴趣的可以同分享的海报进行订阅
 
 ![数据分析实战45讲](./picture/数据分析实战45讲.jpg)
