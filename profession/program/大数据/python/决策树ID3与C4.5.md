@@ -1,7 +1,9 @@
-# 决策树
+# 决策树ID3与C4.5
 ***
+*参考极客时间<数据分析实战45讲>17章*
+
 ## 决策树的生成
-&ensp;&ensp;&ensp;&ensp;决策树的生成会经历两个阶段:构造和剪纸
+&ensp;&ensp;&ensp;&ensp;决策树的生成会经历两个阶段:构造和剪枝
 
 ### 构造
 &ensp;&ensp;&ensp;&ensp;构造就是生成一颗完整的决策树.简单来说,构造的过程就是选择什么属性作为节点的过程,在构造过程中会存在三种节点:
@@ -84,14 +86,21 @@ $$Ent(D3) = - (\frac{1}{2} log_2 \frac{1}{2} + \frac{1}{2} log_2 \frac{1}{2}) = 
 
 &ensp;&ensp;&ensp;&ensp;可以看出这里的温度的信息增益最大,所有温度作为整个决策树的根节点.后面根据温度的高中低会生成三个中间节点,而这三个中间节点的选择算法同根节点,如果只有一种结果那这个节点就是叶节点.这样就生成了一颗决策树.
 
-## ID3算法实现(Python3)
+#### 信息增益率
+*在文章中这部分好像描述的比较少,自己读起来也是比较懵,在网上找了一篇讲的不错的作为参考:[C4.5算法详解](https://blog.csdn.net/zjsghww/article/details/51638126)
+
+&ensp;&ensp;&ensp;&ensp;信息增益率是C4.5算法对ID3改进使用的,它由信息增益和属性熵获取(属性分裂信息度量)
+
+##### 属性熵(属性分裂信息度量)
+&ensp;&ensp;&ensp;&ensp;上栗子吧,就不搞公式了,防止我理解错误,上面表格中各个属性熵为:
+
+H(天气)= -(3/7 * log2(3/7) + 2/7 * log2(2/7) + 2/7 * log2(2/7)) 天气有晴阴雨,各占3/7,2/7,2/7
+H(温度)= -(4/7 * log2(4/7) + 2/7 * log2(2/7) + 1/7 * log2(1/7)) 温度有高中低
+H(湿度)= -(4/7 * log2(4/7) + 3/7 * log2(3/7)) 湿度有两种情况
+H(刮风)= -(4/7 * log2(4/7) + 3/7 * log2(3/7)) 刮风有两种情况
+
+## ID3和C4.5算法实现(Python3)
 ```python
-#!/usr/bin/env python
-# @Time    : 2019/6/28 16:25
-# @Author  : LiuWei
-# @Site    : 
-# @File    : ID3.py
-# @Software: PyCharm
 # -*- coding: utf-8 -*-
 from copy import copy
 
@@ -181,7 +190,35 @@ def getNormalizedInfoEntropy(infoEntropy):
     return normalizedInfoEntropy
 
 
-def selectNode(trainData, properties, propertiesIndex):
+def getAttributeEntropy(trainData, properties, propertiesIndex):
+    attributeEntropy = {}
+    for attribute in properties:
+        attributeEntropy[attribute] = 0.0
+        index = propertiesIndex[attribute]
+        attributeStatistics = {}
+        for item in trainData:
+            if item[index] not in attributeStatistics:
+                attributeStatistics[item[index]] = 1
+            else:
+                attributeStatistics[item[index]] = attributeStatistics[item[index]] + 1
+
+        for item in attributeStatistics:
+            probability = attributeStatistics[item] / len(trainData)
+            attributeEntropy[attribute] = attributeEntropy[attribute] + probability * math.log(probability, 2)
+        attributeEntropy[attribute] = attributeEntropy[attribute] * -1
+    return attributeEntropy
+
+
+def getInfoGainRate(infoGain, attributeEntropy):
+    infoGainRate = {}
+    for attribute in attributeEntropy:
+        if attributeEntropy[attribute] == 0.0:
+            continue
+        infoGainRate[attribute] = infoGain[attribute] / attributeEntropy[attribute]
+    return infoGainRate
+
+
+def selectNode(trainData, properties, propertiesIndex, model):
     """
 
     :param trainData:
@@ -232,6 +269,23 @@ def selectNode(trainData, properties, propertiesIndex):
         elif infoGain[attribute] > infoGain[name]:
             name = attribute
 
+    # C4.5添加start
+    attributeEntropy = {}
+    infoGainRate = {}
+    if model == 1:
+        attributeEntropy = getAttributeEntropy(trainData, properties, propertiesIndex)
+        print("当前属性熵：", attributeEntropy)
+
+        infoGainRate = getInfoGainRate(infoGain, attributeEntropy)
+        print("当前信息增益率:", infoGainRate)
+
+        name = None
+        for attribute in infoGainRate:
+            if name is None:
+                name = attribute
+            elif infoGainRate[attribute] > infoGainRate[name]:
+                name = attribute
+
     statusMap = {}
     for status in infoEntropy[name]:
         statusMap[status] = {}
@@ -248,7 +302,7 @@ def selectNode(trainData, properties, propertiesIndex):
     return node
 
 
-def getID3Tree(trainData, properties, propertiesIndex):
+def getID3Tree(trainData, properties, propertiesIndex, model):
     """
     获取ID3决策树
     :param trainData:
@@ -266,7 +320,7 @@ def getID3Tree(trainData, properties, propertiesIndex):
         }
     }
     """
-    node = selectNode(trainData, properties, propertiesIndex)
+    node = selectNode(trainData, properties, propertiesIndex, model)
     print("当前选择的最优节点为:", node)
     tree = {
         node["name"]: {},
@@ -286,10 +340,10 @@ def getID3Tree(trainData, properties, propertiesIndex):
                 if item[propertiesIndex[node["name"]]] == status:
                     tempTrainData[item] = trainData[item]
 
-            tree[node["name"]][status], nodeName = getID3Tree(tempTrainData, properties, propertiesIndex)
+            tree[node["name"]][status], nodeName = getID3Tree(tempTrainData, tempProperties, propertiesIndex, model)
             print("进行属性列表裁剪:", tempProperties, nodeName)
-            if nodeName in properties:
-                properties.remove(nodeName)
+            if nodeName in tempProperties:
+                tempProperties.remove(nodeName)
 
     return tree, node["name"]
 
@@ -305,6 +359,9 @@ def printTree(tree, interval):
 
 
 if __name__ == "__main__":
+    # 设置算法模式: 0->ID3 1->C4.5
+    model = 0
+
     properties = ["weather", "temperature", "humidity", "windy"]
     propertiesIndex = {"weather": 0, "temperature": 1, "humidity": 2, "windy": 3}
     # 0:不打篮球 1:打篮球
@@ -320,7 +377,52 @@ if __name__ == "__main__":
     # for key in trainData:
     #     print(key, trainData[key])
 
-    tree, name = getID3Tree(trainData, properties, propertiesIndex)
+    tree, name = getID3Tree(trainData, properties, propertiesIndex, model)
     print(str(tree).replace("'", '"'))
     printTree(tree, "")
+
+```
+
+运行结果为:
+```
+当前训练集为: {('sun', 'high', 'middle', 'no'): 0, ('sun', 'high', 'middle', 'yes'): 0, ('cloud', 'high', 'high', 'no'): 1, ('rain', 'high', 'high', 'no'): 1, ('rain', 'low', 'high', 'no'): 0, ('sun', 'middle', 'middle', 'yes'): 1, ('cloud', 'middle', 'high', 'yes'): 0}
+当前的属性列表为: ['weather', 'temperature', 'humidity', 'windy']
+当前训练集的根节点的信息熵: 0.9852281360342516
+当前训练集的信息熵: {'weather': {'sun': {'count': 3, 'value': 0.9182958340544896}, 'cloud': {'count': 2, 'value': 1.0}, 'rain': {'count': 2, 'value': 1.0}}, 'temperature': {'high': {'count': 4, 'value': 1.0}, 'low': {'count': 1, 'value': -0.0}, 'middle': {'count': 2, 'value': 1.0}}, 'humidity': {'middle': {'count': 3, 'value': 0.9182958340544896}, 'high': {'count': 4, 'value': 1.0}}, 'windy': {'no': {'count': 4, 'value': 1.0}, 'yes': {'count': 3, 'value': 0.9182958340544896}}}
+当前训练集的归一化信息熵: {'weather': 0.9649839288804954, 'temperature': 0.8571428571428571, 'humidity': 0.9649839288804954, 'windy': 0.9649839288804954}
+当前训练集的信息增益: {'weather': 0.02024420715375619, 'temperature': 0.12808527889139454, 'humidity': 0.02024420715375619, 'windy': 0.02024420715375619}
+当前选择的最优节点为: {'name': 'temperature', 'status': {'high': {'value': 1.0, 'keys': [('sun', 'high', 'middle', 'no'), ('sun', 'high', 'middle', 'yes'), ('cloud', 'high', 'high', 'no'), ('rain', 'high', 'high', 'no')]}, 'low': {'value': -0.0, 'keys': [('rain', 'low', 'high', 'no')]}, 'middle': {'value': 1.0, 'keys': [('sun', 'middle', 'middle', 'yes'), ('cloud', 'middle', 'high', 'yes')]}}}
+进行属性列表裁剪: ['weather', 'temperature', 'humidity', 'windy'] temperature
+
+当前训练集为: {('sun', 'high', 'middle', 'no'): 0, ('sun', 'high', 'middle', 'yes'): 0, ('cloud', 'high', 'high', 'no'): 1, ('rain', 'high', 'high', 'no'): 1}
+当前的属性列表为: ['weather', 'humidity', 'windy']
+当前训练集的根节点的信息熵: 1.0
+当前训练集的信息熵: {'weather': {'sun': {'count': 2, 'value': -0.0}, 'cloud': {'count': 1, 'value': -0.0}, 'rain': {'count': 1, 'value': -0.0}}, 'humidity': {'middle': {'count': 2, 'value': -0.0}, 'high': {'count': 2, 'value': -0.0}}, 'windy': {'no': {'count': 3, 'value': 0.9182958340544896}, 'yes': {'count': 1, 'value': -0.0}}}
+当前训练集的归一化信息熵: {'weather': 0.0, 'humidity': 0.0, 'windy': 0.6887218755408672}
+当前训练集的信息增益: {'weather': 1.0, 'humidity': 1.0, 'windy': 0.31127812445913283}
+当前选择的最优节点为: {'name': 'weather', 'status': {'sun': {'value': -0.0, 'keys': [('sun', 'high', 'middle', 'no'), ('sun', 'high', 'middle', 'yes')]}, 'cloud': {'value': -0.0, 'keys': [('cloud', 'high', 'high', 'no')]}, 'rain': {'value': -0.0, 'keys': [('rain', 'high', 'high', 'no')]}}}
+进行属性列表裁剪: ['weather', 'humidity', 'windy'] weather
+进行属性列表裁剪: ['weather', 'humidity', 'windy'] weather
+
+当前训练集为: {('sun', 'middle', 'middle', 'yes'): 1, ('cloud', 'middle', 'high', 'yes'): 0}
+当前的属性列表为: ['humidity', 'windy']
+当前训练集的根节点的信息熵: 1.0
+当前训练集的信息熵: {'humidity': {'middle': {'count': 1, 'value': -0.0}, 'high': {'count': 1, 'value': -0.0}}, 'windy': {'yes': {'count': 2, 'value': 1.0}}}
+当前训练集的归一化信息熵: {'humidity': 0.0, 'windy': 1.0}
+当前训练集的信息增益: {'humidity': 1.0, 'windy': 0.0}
+当前选择的最优节点为: {'name': 'humidity', 'status': {'middle': {'value': -0.0, 'keys': [('sun', 'middle', 'middle', 'yes')]}, 'high': {'value': -0.0, 'keys': [('cloud', 'middle', 'high', 'yes')]}}}
+进行属性列表裁剪: ['humidity', 'windy'] humidity
+进行属性列表裁剪: ['humidity', 'windy'] humidity
+{"temperature": {"high": {"weather": {"sun": 0, "cloud": 1, "rain": 1}}, "low": 0, "middle": {"humidity": {"middle": 1, "high": 0}}}}
+temperature
+    high
+        weather
+            sun 0
+            cloud 1
+            rain 1
+    low 0
+    middle
+        humidity
+            middle 1
+            high 0
 ```
