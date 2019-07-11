@@ -62,5 +62,8 @@ pm2 start server/app.js
 *登录时使用注册邮箱进行登录，所有请记住自己的邮箱*
 &ensp;&ensp;&ensp;&ensp;首先进行注册后联系管理员添加进相应的分组
 
+## 迁移说明
+&ensp;&ensp;&ensp;&ensp;迁移的时候只要复制MongoDB的中yapi数据库到新迁移环境中的MongoDB中即可
+
 ## 参考链接
 - [安装YApi](https://yapi.ymfe.org/documents/redev.html)
