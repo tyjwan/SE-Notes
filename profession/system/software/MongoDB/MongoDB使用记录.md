@@ -97,6 +97,8 @@ db.getCollection('unit').find({"target":/192.168.169.0.24.*/})
 
 ```shell
 mongoimport -h 我的IP --port 端口 -d 数据库名 -c 表名 -u 帐号 -p 密码 --upsert /usr/share/nginx/html/xxx.json --authenticationDatabase admin
+
+mongorestore -d db_name 文件夹目录
   
 # 导入json
 mongoimport -h 172.19.104.18 --port 20017 -d testdb -c testcol -u mytest -p 12345 --upsert /tmp/test.json --authenticationDatabase testdb
