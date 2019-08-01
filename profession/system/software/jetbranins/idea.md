@@ -17,6 +17,12 @@
 - Rainbow Brackets：https://plugins.jetbrains.com/plugin/10080-rainbow-brackets，彩虹颜色的括号 看着很舒服 敲代码效率变高
 -  Translation:https://plugins.jetbrains.com/plugin/8579-translation,最好用的翻译插件，功能很强大，界面很漂亮
 
+### 插件下载官网
+&ensp;&ensp;&ensp;&ensp;有时候插件刷新不出来或者下载超时，可以到官网进行下载，注意选择对应软件的版本的插件，然后选择从磁盘安装插件即可，不用解压。
+
+- [JetBrains Plugins Repository](https://plugins.jetbrains.com/)
+
+
 #### Lombok
 Java语言，每次写实体类的时候都需要写一大堆的setter，getter，如果bean中的属性一旦有修改、删除或增加时，需要重新生成或删除get/set等方法，给代码维护增加负担，这也是Java被诟病的一种原因。Lombok则为我们解决了这些问题，使用了lombok的注解(@Setter,@Getter,@ToString,@@RequiredArgsConstructor,@EqualsAndHashCode或@Data)之后，就不需要编写或生成get/set等方法，很大程度上减少了代码量，而且减少了代码维护的负担。
 

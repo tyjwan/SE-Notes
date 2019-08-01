@@ -24,7 +24,7 @@
 ### 配置Spring boot
 &ensp;&ensp;&ensp;&ensp;下面需要对两个文件进行编辑：
 
-&ensp;&ensp;&ensp;&ensp;build.gradle文件修改后的内容如下：
+&ensp;&ensp;&ensp;&ensp;build.gradle文件修改后的内容如下,依赖一般是前面是groupId，中间是artifactId，第三个一般是版本。在repositories配置使用阿里云的仓库，避免下载过慢。
 
 ```bash
 plugins {
@@ -40,6 +40,7 @@ version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
     mavenCentral()
 }
 
@@ -131,3 +132,4 @@ public class HelloWorld {
 - [1.Building Spring Boot 2 Applications with Gradle](https://guides.gradle.org/building-spring-boot-2-projects-with-gradle/)
 - [2.Learn Spring Boot](https://www.baeldung.com/spring-boot)
 - [3.Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
+- [Gradle配置阿里云Maven镜像仓库地址](https://blog.csdn.net/ZZY1078689276/article/details/80364726)

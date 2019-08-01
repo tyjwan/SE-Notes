@@ -23,6 +23,9 @@
 ### 导入tar包到本地docker镜像
 docker load < /tmp/new-image.tar  
 
+## 常用仓库链接
+- [mysql](https://hub.docker.com/_/mysql)
+
 ## 参考链接
 - [不加 sudo 执行 Docker 命令](http://www.markjour.com/article/docker-no-root.html)
 - [阿里云docker仓库](https://dev.aliyun.com/search.html)
