@@ -11,10 +11,10 @@ dependencies {
 ```
 
 ### IDEA下载Lombok插件
-&ensp;&ensp;&ensp;&esnp;需要在插件中心中下载相应的插件，这样就不会提示代码错误
+&ensp;&ensp;&ensp;&ensp;需要在插件中心中下载相应的插件，这样就不会提示代码错误
 
 ### 使用
-&ensp;&ensp;&ensp;&esnp;简单的使用的话，Data和Builder注解应该就够了，详细的可以参考官方文档，大致的示例代码如下，代码中会自动生成id，name，和amount的get和set方法。
+&ensp;&ensp;&ensp;&ensp;简单的使用的话，Data和Builder注解应该就够了，详细的可以参考官方文档，大致的示例代码如下，代码中会自动生成id，name，和amount的get和set方法。
 
 ```java
 package com.seckill.spring.entity;
