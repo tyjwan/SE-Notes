@@ -2,7 +2,9 @@
 ***
 ## 示例如下
 ```bash
-docker run --name seckill -p 8080:8080 -m 1024M --cpus=1 seckill:v0
+sudo docker run --name seckill0 -p 8080:8080 -m 1024M --cpus=0.2 -d seckill:v0
+sudo docker run --name seckill1 -p 8081:8080 -m 1024M --cpus=0.2 -d seckill:v0
+sudo docker run --name seckill2 -p 8082:8080 -m 1024M --cpus=0.2 -d seckill:v0
 ```
 
 - -m:限制内存使用为1G
@@ -12,6 +14,9 @@ docker run --name seckill -p 8080:8080 -m 1024M --cpus=1 seckill:v0
 - 查看容器的内存CPU等情况：docker stats
 - 压力测试攻击：webbench
     + 出现编译错误缺失ctag时需要安装
+    + webbench -c 5 -t 30 http://10.33.8.187/goods/findAll
+        * -c表示要模拟的并发客户端数量
+        * -t表示并发时间
 
 ## 相关链接
 - [高并发测试工具](https://blog.csdn.net/essity/article/details/79999369)

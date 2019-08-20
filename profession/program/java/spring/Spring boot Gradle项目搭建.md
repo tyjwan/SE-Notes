@@ -124,6 +124,38 @@ public class HelloWorld {
 }
 ```
 
+### 单元测试
+&ensp;&ensp;&ensp;&ensp;使用spring boot mockMVC测试非常方便
+
+```java
+package code.controllers;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@RunWith(SpringRunner.class)
+@WebMvcTest
+public class HelloWorldTest {
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Test
+    public void helloWorld() throws Exception {
+        this.mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'ret': 'Hello World'}"));
+    }
+}
+```
+
 ### 运行访问
 - 运行Application类，可以在控制台看到起默认监听在8080端口
 - 浏览器访问:localhost:8080,可以看到返回字符串Hello World
@@ -133,3 +165,5 @@ public class HelloWorld {
 - [2.Learn Spring Boot](https://www.baeldung.com/spring-boot)
 - [3.Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
 - [Gradle配置阿里云Maven镜像仓库地址](https://blog.csdn.net/ZZY1078689276/article/details/80364726)
+- [Spring boot MockMVC example](https://howtodoinjava.com/spring-boot2/spring-boot-mockmvc-example/)
+- [Spring Boot配置文件放在jar外部](https://www.cnblogs.com/xiaoqi/p/6955288.html)

@@ -7,13 +7,15 @@
 - 测试
 
 ### build.gradle：依赖添加
-&ensp;&ensp;&ensp;&ensp;需要添加下面三个依赖：
+&ensp;&ensp;&ensp;&ensp;需要添加下面依赖，最后一个依赖时测试依赖
 
 ```bash
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
     implementation 'mysql:mysql-connector-java'
+
+    testCompile("org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.1.0")
 }
 ```
 
@@ -76,7 +78,7 @@ public class Goods {
 }
 ```
 
-&ensp;&ensp;&ensp;&ensp;编写Mapper接口类，大致内容如下：
+&ensp;&ensp;&ensp;&ensp;编写Mapper接口类，大致内容如下，@Repository解决idea里面的bean使用错误
 
 ```java
 import com.seckill.spring.entity.Goods;
@@ -84,6 +86,8 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+@Mapper
+@Repository
 public interface GoodsMapper {
     @Insert("INSERT INTO goods(name, amount) VALUES('${name}', #{amount})")
     Integer insertGoods(@Param("name")String name, @Param("amount")Integer amount) throws Exception;
@@ -163,3 +167,6 @@ public class GoodsMapperTest {
 - [java连接mysql失败Path does not chain with any of the trust anchors](https://blog.csdn.net/u013727805/article/details/80555726)
 - [SpringBoot+Mybatis框架项目的单元测试和集成测试（下）](https://blog.csdn.net/wxx151556/article/details/77692960)
 - [Spring Boot(六)：如何优雅的使用 Mybatis](https://www.cnblogs.com/ityouknow/p/6037431.html)
+- [mybatis-spring-boot-test-autoconfigure](http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-test-autoconfigure/)
+- [Idea inspects batis mapper bean wrong](https://stackoverflow.com/questions/25379348/idea-inspects-batis-mapper-bean-wrong/29841004)
+- [Property 'sqlSessionFactory' or 'sqlSessionTemplate' are required in spring mock mvc test for spring boot with mybatis](https://github.com/mybatis/spring-boot-starter/issues/227)
