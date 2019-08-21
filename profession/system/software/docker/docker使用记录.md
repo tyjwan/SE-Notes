@@ -16,6 +16,11 @@
 ## 使用中需要注意的问题
 - [空间的清理](https://yq.aliyun.com/articles/272173)
 
+## ssh安装
+```bash
+yum install -y openssh-server
+```
+
 ## 常规操作
 ### 进入正在运行中的容器
 - docker exec -ti dockernameorid /bin/bash
