@@ -177,3 +177,4 @@ git push origin master --force
 - [git忽略特定文件或目录](https://blog.csdn.net/huzhenwei/article/details/7426093)
 - [git配置过程中fatal:拒绝合并无关的历史](https://blog.csdn.net/yamanda/article/details/79375698)
 - [Git 合并指定文件或文件夹](https://juejin.im/post/5adff0d0f265da0b7f4434dc)
+- [git clone 太慢的解决方式](https://blog.csdn.net/twang0x80/article/details/79777135)
