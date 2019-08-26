@@ -19,6 +19,7 @@
 ## ssh安装
 ```bash
 yum install -y openssh-server
+/usr/sbin/sshd -D
 ```
 
 ## 常规操作
