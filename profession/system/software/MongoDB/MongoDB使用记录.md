@@ -14,7 +14,6 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
 yum install -y mongodb-org
 
 service mongod start
-chkconfig mongod on
 
 # 修改能被外界访问
 vim /etc/mongodb.conf

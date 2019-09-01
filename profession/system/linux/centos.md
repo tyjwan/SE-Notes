@@ -2,6 +2,7 @@
 ***
 ## 安装
 - 启动盘制作使用Linux的专用工具，避免安装时不必要的麻烦，推荐：[rufus](https://rufus.ie/)
+- [balenaEtcher](https://www.balena.io/etcher/)
 
 ## 网络配置
 - ip addr 查看网络配置

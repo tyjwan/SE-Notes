@@ -8,6 +8,19 @@
 - [安装教程](http://blog.csdn.net/qq_27818541/article/details/73647797)
 - [镜像加速地址](https://cr.console.aliyun.com/?accounttraceid=3480ea01-1b31-4cb1-a169-6c220739cae6#/accelerator)
 - 安装过程中的依赖问题解决：sudo apt-get install -f -y
+- [How To Install and Use Docker on CentOS 7](https://linuxize.com/post/how-to-install-and-use-docker-on-centos-7/)
+
+### centos7
+&ensp;&ensp;&ensp;&ensp;如果出现冲突，卸载相应冲突的软件即可
+
+```bash
+yum update
+yum install yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum install docker-ce
+systemctl start docker
+systemctl enable docker
+```
 
 ## 与宿主机交互类
 - 单个文件挂载：将宿主的文件进行挂载时，有时docker里面对文件操作会改变宿主机，而宿主机里面操作不会改变，这个好像涉及到一些问题，不建议这样进行挂载，可以进行目录挂载
@@ -27,7 +40,20 @@ yum install -y openssh-server
 - docker exec -ti dockernameorid /bin/bash
 
 ### 导入tar包到本地docker镜像
-docker load < /tmp/new-image.tar  
+docker load < /tmp/new-image.tar
+
+### 添加镜像加速器
+#### centos
+```bash
+vim /etc/docker/daemon.json
+
+{
+  "registry-mirrors": ["https://vmnyyjzt.mirror.aliyuncs.com"]
+}
+
+systemctl daemon-reload
+systemctl restart docker
+```
 
 ## 常用仓库链接
 - [mysql](https://hub.docker.com/_/mysql)

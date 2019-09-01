@@ -12,6 +12,8 @@ npm install -g vue-cli
 vue init webpack my-project
 cd my-project
 npm install
+
+export HOST=0.0.0.0
 npm run dev
 ```
 

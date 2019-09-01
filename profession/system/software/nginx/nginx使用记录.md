@@ -5,7 +5,8 @@
 yum install -y pcre
 yum install -y pcre-devel
 yum install -y openssl-devel
-yum install epel-release
+yum install -y epel-release
+yum install -y nginx
 ```
 
 ### 访问权限问题
@@ -17,6 +18,7 @@ chmod a+x xxxx
 
 ### 配置不同路径访问不同的静态文件
 &ensp;&ensp;&ensp;&ensp;好像只能存在一个roo，另一个需要使用alias，例子如下：
+
 ```
 server {
         listen       80 default_server;
@@ -45,6 +47,18 @@ server {
             alias /usr/share/nginx/html/;
             index index.html;
         }
+}
+```
+
+### 文件服务器搭建
+&ensp;&ensp;&ensp;&ensp;进行location的配置即可，如下面的配置的话就是访问：/home/download/download,根据情况进行修改即可
+
+```bash
+location /download {
+    root /home/download;
+    autoindex on;
+    autoindex_exact_size on;
+    autoindex_localtime on;
 }
 ```
 
