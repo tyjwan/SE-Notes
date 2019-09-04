@@ -163,7 +163,9 @@ git rm xxx
 直接点击页面上的fork即可
 
 ### git修改远程仓库地址
+```bash
 git remote set-url origin [url]
+```
 
 ### 强制覆盖远程仓库
 ```bash

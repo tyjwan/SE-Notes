@@ -4,6 +4,19 @@
 ### python
 https://pypi.org/project/redis/#description
 
+### centos
+```bash
+yum update -y
+yum install epel-release -y
+yum update -y
+yum install redis
+systemctl start redis
+systemctl enable redis
+
+vim /etc/redis.conf
+bind 0.0.0.0
+```
+
 ## 设置
 ### 外网访问
 ```

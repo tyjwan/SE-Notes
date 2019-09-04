@@ -10,6 +10,12 @@
 - systemctl stop firewalld.service #停止firewall
 - systemctl disable firewalld.service #禁止firewall开机启动
 
+### 设置静态IP
+```bash
+vim /etc/sysconfig/network-script/ifcfg-xxxx
+IPADDR=0.0.0.0
+```
+
 ## 硬盘挂载
 - fdist -l:查看相应的硬盘信息
 - mkfs.ext4 /dev/xxxx:格式化话硬盘
