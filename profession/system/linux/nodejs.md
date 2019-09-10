@@ -4,10 +4,12 @@
 ### centos
 ```bash
 curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
-yum install nodejs
+yum install nodejs -y
 node --version
 
 npm config set registry https://registry.npm.taobao.org
+npm install
+npm run dev
 ```
 
 ## 参考链接

@@ -4,7 +4,8 @@
 &ensp;&ensp;&ensp;&ensp;直接命令行运行下面的命令即可：
 
 ```
-sudo apt-get updatesudo apt-get install python-pipsudo apt-get install python-setuptools m2crypto
+sudo apt-get update
+sudo apt-get install python-pip
 
 sudo pip install shadowsocks
 ```

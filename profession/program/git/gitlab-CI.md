@@ -69,3 +69,6 @@ deploy:
 - [Linux下递归改变目录及其子目录属性](http://blog.sciencenet.cn/blog-350278-743765.html)
 - [超详细Gitlab Runner环境配置中文教程](https://blog.csdn.net/u011215669/article/details/80446624)
 - [利用GitLab提供的GitLab-CI以及GitLab-Runner搭建持续集成/部署环境](https://juejin.im/entry/5ad8627d6fb9a045d639b043)
+- [GitLab-CI与GitLab-Runner](https://www.jianshu.com/p/2b43151fb92e)
+- [GitLab-CI 从安装到差点放弃](https://segmentfault.com/a/1190000007180257)
+- [Git gitlab私库clone地址](https://blog.csdn.net/benpaodelulu_guajian/article/details/83822059)

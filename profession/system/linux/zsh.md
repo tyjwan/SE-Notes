@@ -15,3 +15,4 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 ## 参考链接
 - [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 - [Install oh-my-zsh now](https://ohmyz.sh/)
+- [Ubuntu 服务器安装shadowsocks](https://wangxin1248.github.io/linux/2018/04/ubuntu-install-shadowsocks.html)

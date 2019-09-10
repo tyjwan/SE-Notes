@@ -2,6 +2,7 @@
 ***
 ## Linxu（建议手动安装，有些通过命令安装的版本比较老）
 ```sh
+wget https://services.gradle.org/distributions/gradle-5.6.2-bin.zip
 sudo mkdir /opt/gradle
 sudo unzip -d /opt/gradle gradle-5.5.1-bin.zip
 ls /opt/gradle/gradle-5.5.1
@@ -12,6 +13,7 @@ export PATH=$PATH:/opt/gradle/gradle-5.5.1/bin
 source /etc/profile
 
 gradle build
+gradle build -x test
 ```
 
 ## 参考链接
