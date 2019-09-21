@@ -1,6 +1,14 @@
 # Docker Java程序镜像制作
 ***
+## 制作前的准备
+- jre：不需要完整的jdk，jre即可，到Oracle进行下载即可，[下载链接](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html),根据自己的情况进行选择，这里选择jre-8u221-linux-x64.tar.gz，一般只能使用解压安装了，rpm的可以直接使用yum命令进行安装，但我们这里用不了
+- jar包：自己写好的程序的可执行jar，放到镜像中直接运行即可
+
 ## 制作步骤
+- mkdir docker：创建一个制作镜像的工作目录，里面用于存放构建镜像需要的文件，如jre和jar包，还有镜像构建文件Dockfile
+- 在目录下放入jar包和jre
+- 生产Dockfile文件并进行编写，编写示例和说明如下,下面的操作环境是centos7
+
 ```bash
 # 创建镜像制作目录
 mkdir docker
@@ -8,8 +16,8 @@ cd docker
 
 # 将oracle的jre包和生成好的程序jar放到目录中
 # 为了制造较小体积的镜像，不使用jdk包，也没有必要使用它
-cp .../jre-8u221-linux-x64.tar.gz ./
-cp .../seckill-1.0-SNAPSHOT.jar ./
+cp ../jre-8u221-linux-x64.tar.gz ./
+cp ../seckill-1.0-SNAPSHOT.jar ./
 
 # 创建并编辑编辑Dockfile镜像生成文件
 vim Dockerfile
