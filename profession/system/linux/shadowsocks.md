@@ -1,4 +1,4 @@
-# Ubuntu16.04 Shadowsocks 翻墙配置记录
+# Ubuntu Shadowsocks 翻墙配置记录
 ***
 ## 一、安装 Shadowsocks
 &ensp;&ensp;&ensp;&ensp;直接命令行运行下面的命令即可：
@@ -26,7 +26,7 @@ sudo pip install shadowsocks
 }
 ```
 
-&ensp;&ensp;&ensp;&ensp;其中这个网站有免费的账号[ss免费账号](https://github.com/Alvin9999/new-pac/wiki/ss%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7)
+&ensp;&ensp;&ensp;&ensp;其中这个网站有免费的账号[ss免费账号](https://github.com/Alvin9999/new-pac/wiki/ss%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7)：https://github.com/Alvin9999/new-pac/wiki/ss%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7
 
 ## 三、运行
 &ensp;&ensp;&ensp;&ensp;在命令行中运行：
@@ -86,11 +86,25 @@ AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EV
 
 ![](./picture/shadowsocks2.png)
 
-- 3.设置规则：首先点击左边的auto switch，其中修改的内容如下图，在规则列表网址中填入：https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt，然后点击下面的立即更新情景模式，最后点应用选项保存即可
+- 4.设置规则：首先点击左边的auto switch，其中修改的内容如下图，在规则列表网址中填入：https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt，然后点击下面的立即更新情景模式，最后点应用选项保存即可
 
 ![](./picture/shadowsocks3.png)
 
-- 4.在浏览器的右上角有一个扩展程序的圆圈，点击以后选择auto switch即可进行代理上网，如果不想进行代理选择系统代理即可，这样切换比较方便，还是比较可以的。网速查查资料还是可以，能满足工作的需求的了，看视频之类还是用Windows下的xx-net吧。
+- 5.在浏览器的右上角有一个扩展程序的圆圈，点击以后选择auto switch即可进行代理上网，如果不想进行代理选择系统代理即可，这样切换比较方便，还是比较可以的。网速查查资料还是可以，能满足工作的需求的了，看视频之类还是用Windows下的xx-net吧。
+
+### 安装插件时的无效错误处理
+&ensp;&ensp;&ensp;&ensp;拖动crx文件进行安装时可能会无效安装，提示插件错误或者无效，这是因为后面的chrome中去除了离线安装的支持，所以进不能进行这样的安装方法。
+
+&ensp;&ensp;&ensp;&ensp;解决的办法时使用暴力安装：修改文件名后缀crx为zip后，拖动进行安装即可。
+
+### 谷歌浏览器命令行安装
+```sh
+sudo wget https://repo.fdzh.org/chrome/google-chrome.list -P /etc/apt/sources.list.d/ && \
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add - && \
+sudo apt update && \
+sudo apt install google-chrome-stable
+```
+
 
 ## 参考链接：
 - [Ubuntu14.04 在chrome 安装使用SS过程详解](http://blog.csdn.net/u012986684/article/details/53446107)
