@@ -16,6 +16,22 @@ vim /etc/sysconfig/network-script/ifcfg-xxxx
 IPADDR=0.0.0.0
 ```
 
+## 源配置
+```sh
+/etc/yum.repos.d/
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+yum -y update
+```
+
+## C/C++环境配置
+```sh
+yum install -y gcc
+yum install -y gcc-c++
+yum install -y gdb
+yum install -y cmake
+yum install -y make
+```
+
 ## 硬盘挂载
 - fdist -l:查看相应的硬盘信息
 - mkfs.ext4 /dev/xxxx:格式化话硬盘
