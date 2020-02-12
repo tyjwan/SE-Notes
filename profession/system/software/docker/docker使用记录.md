@@ -47,6 +47,13 @@ yum install -y openssh-server
 ### 导入tar包到本地docker镜像
 docker load < /tmp/new-image.tar
 
+### 查看ip地址
+docker inspect --format='{{.NetworkSettings.IPAddress}}' mongo
+
+### 映射连接问题
+地址不对,可能不是onlyhost模式,使用下面的地址即可
+docker-machine ip default
+
 ### 添加镜像加速器
 #### centos
 ```bash
@@ -58,6 +65,17 @@ vim /etc/docker/daemon.json
 
 systemctl daemon-reload
 systemctl restart docker
+```
+
+#### windows docker toolbox
+```sh
+docker-machine rm default
+docker-machine create --engine-registry-mirror=https://vmnyyjzt.mirror.aliyuncs.com -d virtualbox default
+docker-machine env default
+eval "$(docker-machine env default)"
+docker info
+
+# docker安装需要最新的boot2docker.iso，从docker的安装界面复制网址，我安装的日期是20180823，此时的boot2docker.iso地址为boot2docker.iso，这个地址貌似被墙了，需要翻墙下载，将下载好的文件放到对应文件夹下，我的电脑上为C:\Users\lzy\.docker\machine\cache
 ```
 
 ## 常用仓库链接
