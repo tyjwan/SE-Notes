@@ -140,7 +140,10 @@ git config credential.helper store
 git checkout -b dev origin/dev
 ```
 
-### 
+### 删除分支
+```sh
+git branch -d vo
+```
 
 ### 版本回退
 ```sh
