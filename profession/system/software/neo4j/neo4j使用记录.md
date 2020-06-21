@@ -29,6 +29,10 @@ rm /var/lib/neo4j/data/dbms/auth
 http://172.18.0.44:7474/browser/
 ```
 
+```sh
+match(n) return n
+```
+
 ## 参考链接
 - [Red Hat / CentOS / Fedora](https://neo4j.com/docs/operations-manual/3.1/installation/linux/rpm/)
 - [Chapter 2. Installation](https://neo4j.com/docs/operations-manual/3.1/installation/)

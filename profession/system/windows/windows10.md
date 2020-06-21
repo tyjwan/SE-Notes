@@ -8,6 +8,7 @@
 - Git for Windows:程序员不用Git是不行的，官网下载最新版本：[https://git-scm.com/download/win](https://git-scm.com/download/Windows)
 - subline test 3:轻量级美观漂亮的，体验极好的编辑器，用来写Markdown文档的最佳
 - Cmder：CMD美化，必备：[https://segmentfault.com/a/1190000008607196](https://segmentfault.com/a/1190000008607196)
+- windows terminal：官方商店免费，感觉很好了
 
 ## 备用软件
 - Wox：开源免费强大的快捷启动器辅助工具，快速高效率打开软件/搜索文件！（发现Windows7也能在简单的搜索启动程序，后面就没有装了）
@@ -30,6 +31,7 @@
 - 异次元软件
 - 大眼仔
 - 小众软件
+- ![心阶：翻墙利器](https://www.xinjiecloud.co/user)
 
 
 ## 参考链接

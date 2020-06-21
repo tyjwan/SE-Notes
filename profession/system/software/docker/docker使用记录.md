@@ -24,11 +24,30 @@ systemctl enable docker
 
 ## 与宿主机交互类
 - 单个文件挂载：将宿主的文件进行挂载时，有时docker里面对文件操作会改变宿主机，而宿主机里面操作不会改变，这个好像涉及到一些问题，不建议这样进行挂载，可以进行目录挂载
-- 目录挂载：目录挂载可以完美实现文件共享功能，docker和宿主机的操作都会改变文件
+- 目录挂载：目录挂载可以完美实现文件共享功能，docker和宿主机的操作都会改变文件（Windows里c:/xx/xx/即可）
 
 ### Windows网络互通
 ```bash
+ipconfig
+
+以太网适配器 vEthernet (Default Switch):
+
+   连接特定的 DNS 后缀 . . . . . . . :
+   本地链接 IPv6 地址. . . . . . . . : fe80::3004:9659:3139:af85%21
+   IPv4 地址 . . . . . . . . . . . . : 172.17.220.241
+   子网掩码  . . . . . . . . . . . . : 255.255.255.240
+   默认网关. . . . . . . . . . . . . :
+
+route add -p 172.17.0.0 mask 255.255.255.240 172.17.220.241
+
 route add -p 172.17.0.0 mask 255.255.255.240 10.0.75.2
+
+cat C:\Windows\System32\drivers\etc\hosts
+# Added by Docker Desktop
+10.33.0.119 host.docker.internal
+10.33.0.119 gateway.docker.internal
+# To allow the same kube context to work on the host and the container:
+127.0.0.1 kubernetes.docker.internal
 ```
 
 ## 使用中需要注意的问题

@@ -1,6 +1,7 @@
 # nginx 使用记录
 ***
 ## 安装
+### Linux软件安装
 ```sh
 yum install -y pcre
 yum install -y pcre-devel
@@ -8,6 +9,9 @@ yum install -y openssl-devel
 yum install -y epel-release
 yum install -y nginx
 ```
+
+### docker安装（linux，Windows）
+&ensp;&ensp;&ensp;&ensp;教程链接：https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/#running-nginx-plus-in-a-docker-container
 
 ### 访问权限问题
 ```

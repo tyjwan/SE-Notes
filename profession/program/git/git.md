@@ -175,6 +175,36 @@ git remote set-url origin [url]
 git push origin master --force
 ```
 
+### 初始仓库操作
+```
+# Git global setup
+git config --global user.name "Administrator"
+git config --global user.email "admin@example.com"
+
+# Create a new repository
+git clone http://f540892fafe8/root/enginelib.git
+cd enginelib
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+
+# Push an existing folder
+cd existing_folder
+git init
+git remote add origin http://f540892fafe8/root/enginelib.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+
+# Push an existing Git repository
+cd existing_repo
+git remote rename origin old-origin
+git remote add origin http://f540892fafe8/root/enginelib.git
+git push -u origin --all
+git push -u origin --tags
+```
+
 ## 参考链接
 - [http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=2650661735&idx=1&sn=9aceac07d272e9202d1b5294f857a5ff&scene=23&srcid=0527tuPapv7riaNZFSHQGe4w#rd](http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=2650661735&idx=1&sn=9aceac07d272e9202d1b5294f857a5ff&scene=23&srcid=0527tuPapv7riaNZFSHQGe4w#rd)
 - [http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=2650661762&idx=1&sn=8282241cf7414030f4e1d315a173beb1&scene=23&srcid=0527o8THYaNT8wb7pcE8JS5G#rd](http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=2650661762&idx=1&sn=8282241cf7414030f4e1d315a173beb1&scene=23&srcid=0527o8THYaNT8wb7pcE8JS5G#rd)
