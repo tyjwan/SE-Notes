@@ -13,13 +13,23 @@
 ### 设置静态IP
 ```bash
 vim /etc/sysconfig/network-script/ifcfg-xxxx
+BOOTPROTO=static
+ONBOOT=yes
 IPADDR=0.0.0.0
+NETMASK=255.255.255.0
+GATEWAY=192.168.1.1
 ```
 
 ## 源配置
 ```sh
+# centos 7
 /etc/yum.repos.d/
 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+yum -y update
+
+# centos 8
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo
+yum makecache
 yum -y update
 ```
 
@@ -38,7 +48,24 @@ yum install -y make
 - mount /dev/hdb1 /mnt/hdb1：挂载到相应的目录
 - vim /ets/fstab,这种自动挂载，/dev/hdb1 /mnt/hdb1 ext4 defaults 0 0，后面的分区与硬盘的分区相关，没有进行分区默认为0即可
 
+## VMware相关
+```
+# 挂载共享文件夹
+systemctl enable vmtoolsd
+systemctl start vmtoolsd
+vmhgfs-fuse .host:/ /mnt/hgfs
+```
+
 ## 查看链接
 - [CentOS 7 网络配置详解](http://blog.51cto.com/simonhu/1588971)
 - [CentOS 7 下挂载新硬盘](https://segmentfault.com/a/1190000008007157)
 - [centos7 关闭防火墙和selinux](https://www.jianshu.com/p/d6414b5295b8)
+
+- [怎么给CentOS Linux 8更换国内源（阿里源）](https://blog.csdn.net/dengshulei/article/details/103704285)
+- [centos8 网络配置](https://blog.csdn.net/KLKFL/article/details/102994442)
+- [centos8 安装 docker](https://www.cnblogs.com/zbseoag/p/11736006.html)
+- [containerd.io-1.2.6-3.3.el7.x86_64.rpm](https://download.docker.com/linux/centos/7/x86_64/stable/Packages/)
+
+- [mondorescue/centos/8/x86_64/ 的索引](ftp://ftp.mondorescue.org/centos/8/x86_64/)
+- [linux 使用 mondo rescue 备份 还原系统 iso u盘](https://blog.csdn.net/whatday/article/details/105789362)
+- [How to create a bare metal (.iso image) backup of a live/running Linux server (CentOS 7 instructions).](https://www.joe0.com/2015/11/14/how-to-create-a-bare-metal-iso-image-backup-of-a-liverunning-linux-server-centos-7-instructions/)

@@ -10,6 +10,9 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 
 # or
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# or 自行建立脚本运行
+https://github.com/ohmyzsh/ohmyzsh/blob/master/tools/install.sh
 ```
 
 ## 参考链接

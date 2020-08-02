@@ -36,3 +36,6 @@
 
 ## 参考链接
 - [Windows命令行工具cmder配置](https://segmentfault.com/a/1190000011361877)
+
+## 其他
+- [VMware Workstation Pro v15.5.1 官方版+激活密钥](https://www.nocmd.com/740.html)

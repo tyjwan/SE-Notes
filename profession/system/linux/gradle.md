@@ -16,6 +16,21 @@ gradle build
 gradle build -x test
 ```
 
+### 加速配置
+```sh
+buildscript {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    }
+}
+
+allprojects {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    }
+}
+```
+
 ## 参考链接
 - [linux下的Gradle编译环境搭建与使用](https://blog.csdn.net/lxh19930428/article/details/53869408)
 - [Installing Gradle](https://docs.gradle.org/5.5.1/userguide/installation.html)
