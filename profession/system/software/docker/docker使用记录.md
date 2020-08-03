@@ -74,6 +74,9 @@ yum install -y openssh-server
 ### 进入正在运行中的容器
 - docker exec -ti dockernameorid /bin/bash
 
+### 导出镜像到本地
+docker save co > file
+
 ### 导入tar包到本地docker镜像
 docker load < /tmp/new-image.tar
 
