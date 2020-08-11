@@ -23,6 +23,11 @@ ansDict[tuple(count)] = ansDict.get(tuple(count), []) + [s]
 list(dict.values())
 ```
 
+### 列表统计构造哈希映射
+```python
+index = {element: i for i, element in enumerate(inorder)}
+```
+
 ## String
 ```python
 # convert
@@ -44,6 +49,14 @@ count[ord(c) - ord('a')] += 1
 i = 5 if a > 7 else 0
 ```
 
+## 装饰器
+### @lru_cache(None)
+&ensp;&ensp;&ensp;&ensp;把耗时的函数的结果保存起来，避免传入相同的参数时重复计算
 
-
-
+```python
+@lru_cache(None)
+def fib_with_cache(n):
+    if n < 2:
+        return n
+    return fib_with_cache(n - 2) + fib_with_cache(n - 1)
+```
