@@ -11,6 +11,33 @@ list.extend(seq)
 ansDict[tuple(count)] = ansDict.get(tuple(count), []) + [s]
 ```
 
+### list作为队列
+```python
+list.pop(0)
+```
+
+### list作为栈
+```python
+list.pop()
+```
+
+### 列表拼接:["1", "2", "3"] --> "1->2->3"
+```python
+"->".join(["1", "2", "3"])
+```
+
+### 二维数组初始化
+```python
+N = [[0]*10 for i in range(10)]
+```
+
+
+### 双端队列：deque
+```python
+quque = deque([[start, 1]])
+node = quque.popleft()
+```
+
 ## Dict
 ### 将list作为key，并取默认值为空list再添加元素
 ```python
@@ -26,6 +53,33 @@ list(dict.values())
 ### 列表统计构造哈希映射
 ```python
 index = {element: i for i, element in enumerate(inorder)}
+```
+
+### 字典排序
+```sh
+sorted(dataOrigin.items(), key=lambda k: k[1], reverse=False)
+```
+
+### 列表字典排序
+```sh
+import operator
+x = [{'name':'Homer', 'age':39}, {'name':'Bart', 'age':10}]
+sorted_x = sorted(x, key=operator.itemgetter('age'),reverse=True) # True 是倒叙  默认是False
+print sorted_x
+```
+
+### 使用堆排序排序字典
+```python
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        statistics = {}
+        for num in nums:
+            statistics[num] = statistics.get(num, 0) + 1
+        result = Counter(statistics).most_common(k)
+        ans = []
+        for key, value in result:
+            ans.append(key)
+        return ans
 ```
 
 ## String
@@ -59,4 +113,21 @@ def fib_with_cache(n):
     if n < 2:
         return n
     return fib_with_cache(n - 2) + fib_with_cache(n - 1)
+```
+
+## 其他
+### 四则运算
+```python
+eval("1*2")
+```
+
+### 输入与进制转换
+```python
+print(int(input(), 16))
+
+dec = int(input("输入数字："))
+print("十进制数为：", dec)
+print("转换为二进制为：", bin(dec))
+print("转换为八进制为：", oct(dec))
+print("转换为十六进制为：", hex(dec))
 ```

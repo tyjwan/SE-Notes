@@ -17,6 +17,7 @@
 - Rainbow Brackets：https://plugins.jetbrains.com/plugin/10080-rainbow-brackets，彩虹颜色的括号 看着很舒服 敲代码效率变高
 -  Translation:https://plugins.jetbrains.com/plugin/8579-translation,最好用的翻译插件，功能很强大，界面很漂亮
 - RestfulToolkit:接口调用调试，极其好用
+- aiXcoer:代码预测补全， https://mp.weixin.qq.com/s/6O2oO0_JgQUZOcW9hUmw2Q
 
 ### 插件下载官网
 &ensp;&ensp;&ensp;&ensp;有时候插件刷新不出来或者下载超时，可以到官网进行下载，注意选择对应软件的版本的插件，然后选择从磁盘安装插件即可，不用解压。
