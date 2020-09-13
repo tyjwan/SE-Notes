@@ -1,10 +1,15 @@
 # Java 单例模式
+
 ***
+
 ## 什么是单例模式
+
 &ensp;&ensp;&ensp;&ensp;保证一个类仅创建一个实例，并提供一个全局访问点
 
 ## 创建模式
+
 ### 饿汉模式
+
 - 线程安全：static修饰变量，在类初始化过程中能保证唯一执行
 - 有点：保证唯一性，没有锁和其他判断，性能高
 - 缺点：在类成员比较多或变量比较大时，在没有使用之前或初始化时就会一直暂用堆内存
@@ -36,6 +41,7 @@ public enum Singleton {
 ```
 
 ### 懒汉模式
+
 ```java
 //懒汉模式
 public final class Singleton {
@@ -69,7 +75,7 @@ public final class Singleton {
         if(null == instance){//当instance为null时，则实例化对象，否则直接返回对象
           synchronized (Singleton.class){
               instance = new Singleton();//实例化对象
-          } 
+          }
         }
         return instance;//返回已存在的对象
     }
@@ -85,7 +91,7 @@ public final class Singleton {
              if(null == instance){//第二次判断
                 instance = new Singleton();//实例化对象
              }
-          } 
+          }
         }
         return instance;//返回已存在的对象
     }
@@ -105,7 +111,7 @@ public final class Singleton {
              if(null == instance){//第二次判断
                 instance = new Singleton();//实例化对象
              }
-          } 
+          }
         }
         return instance;//返回已存在的对象
     }
