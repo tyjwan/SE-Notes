@@ -1,6 +1,6 @@
 # Python3 常用记录
 
-***
+---
 
 ## list
 
@@ -9,19 +9,19 @@
 list.extend(seq)
 ```
 
-### 将list作为key，并取默认值为空list再添加元素
+### 将 list 作为 key，并取默认值为空 list 再添加元素
 
 ```python
 ansDict[tuple(count)] = ansDict.get(tuple(count), []) + [s]
 ```
 
-### list作为队列
+### list 作为队列
 
 ```python
 list.pop(0)
 ```
 
-### list作为栈
+### list 作为栈
 
 ```python
 list.pop()
@@ -43,7 +43,6 @@ parents = [i for i in range(0, len(M))]
 N = [[0]*10 for i in range(10)]
 ```
 
-
 ### 双端队列：deque
 
 ```python
@@ -53,14 +52,13 @@ node = quque.popleft()
 
 ## Dict
 
-### 将list作为key，并取默认值为空list再添加元素
+### 将 list 作为 key，并取默认值为空 list 再添加元素
 
 ```python
 ansDict[tuple(count)] = ansDict.get(tuple(count), []) + [s]
 ```
 
-
-### 将dict作为二维list返回
+### 将 dict 作为二维 list 返回
 
 ```python
 list(dict.values())
