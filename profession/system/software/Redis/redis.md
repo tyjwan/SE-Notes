@@ -17,6 +17,11 @@ vim /etc/redis.conf
 bind 0.0.0.0
 ```
 
+### Docker
+```sh
+docker run -dit --name redis -p 6379:6379 redis
+```
+
 ## 设置
 ### 外网访问
 ```
