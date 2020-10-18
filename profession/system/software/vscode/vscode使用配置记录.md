@@ -20,6 +20,22 @@ _配置完后大致样子如下_
 
 -   [Fira Code:点击 ttf 进行安装即可，还是比较好看的](https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip)
 
+#### 修改字体
+设置中搜索 editor.fontLigatures 然后设置
+
+
+```sh
+// 启用字体连字
+    "editor.fontLigatures": false,
+    // 以像素为单位控制字号。
+    "editor.fontSize": 14,
+    // 控制字体粗细。
+    "editor.fontWeight": "normal",
+    "editor.fontFamily": "Fira Code", //后边的引号中写上要设置的字体类型，个人比较喜欢Fira Code
+    "editor.fontLigatures": true, //这个控制是否启用字体连字，true启用，false不启用，这里选择启用
+    "editor.fontSize": 15, //设置字体大小，这个不多说都明白
+```
+
 ## 参考链接
 
 -   [Windows 下如何配置好看且好用的 VSCODE 环境](https://zhuanlan.zhihu.com/p/164852197)
