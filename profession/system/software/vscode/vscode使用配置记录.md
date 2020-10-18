@@ -26,16 +26,21 @@ _配置完后大致样子如下_
 
 ```sh
 // 启用字体连字
-    "editor.fontLigatures": false,
-    // 以像素为单位控制字号。
-    "editor.fontSize": 14,
-    // 控制字体粗细。
-    "editor.fontWeight": "normal",
-    "editor.fontFamily": "Fira Code", //后边的引号中写上要设置的字体类型，个人比较喜欢Fira Code
-    "editor.fontLigatures": true, //这个控制是否启用字体连字，true启用，false不启用，这里选择启用
-    "editor.fontSize": 15, //设置字体大小，这个不多说都明白
+"editor.fontLigatures": false,
+// 以像素为单位控制字号。
+"editor.fontSize": 14,
+// 控制字体粗细。
+"editor.fontWeight": "normal",
+"editor.fontFamily": "Fira Code", //后边的引号中写上要设置的字体类型，个人比较喜欢Fira Code
+"editor.fontLigatures": true, //这个控制是否启用字体连字，true启用，false不启用，这里选择启用
+"editor.fontSize": 15, //设置字体大小，这个不多说都明白
 ```
+
+### Ctrl等快捷键使用还原
+可以通过 File -> Preference -> Settings中   vim.useCtrlKeys 选项设置为 false
 
 ## 参考链接
 
 -   [Windows 下如何配置好看且好用的 VSCODE 环境](https://zhuanlan.zhihu.com/p/164852197)
+- [Style your Windows terminal and use WSL and PowerShell like a pro](https://medium.com/@hjgraca/style-your-windows-terminal-and-wsl2-like-a-pro-9a2e1ad4c9d0)
+- [JanDeDobbeleer/oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh?WT.mc_id=-blog-scottha#installation)
