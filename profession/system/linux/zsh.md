@@ -13,6 +13,12 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 # or 自行建立脚本运行
 https://github.com/ohmyzsh/ohmyzsh/blob/master/tools/install.sh
+
+# 感觉是被墙了的原因，无法直接获取文件进行安装
+# 可以访问：https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+# 获取文件内容,下入下面的文件中，然后执行脚本
+vim zshInstall.sh
+sh zshInstall.sh
 ```
 
 ## 参考链接

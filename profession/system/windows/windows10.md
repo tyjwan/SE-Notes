@@ -38,9 +38,9 @@
 # oper powershell, check version,need 7, download url: https://github.com/PowerShell/PowerShell/releases/tag/v7.0.3
 $PSVersionTable
 
-Install-Module -Name PSReadLine -AllowPrerelease -Force # PSReadLine
 Install-Module posh-git -Scope CurrentUser # posh-git
 Install-Module oh-my-posh -Scope CurrentUser # oh-my-posh
+Install-Module -Name PSReadLine -AllowPrerelease -Force # PSReadLine
 
 notepad.exe $Profile
 
