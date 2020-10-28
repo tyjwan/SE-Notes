@@ -128,6 +128,33 @@ docker info
 # docker安装需要最新的boot2docker.iso，从docker的安装界面复制网址，我安装的日期是20180823，此时的boot2docker.iso地址为boot2docker.iso，这个地址貌似被墙了，需要翻墙下载，将下载好的文件放到对应文件夹下，我的电脑上为C:\Users\lzy\.docker\machine\cache
 ```
 
+## 一些问题
+### [win10 docker wsl 镜像存储位置设置](https://stackoverflow.com/questions/62441307/how-can-i-change-the-location-of-docker-images-when-using-wsl2-with-windows-10-h)
+```bash
+First, shut down your docker desktop by right click on the Docker Desktop icon and select Quit Docker Desktop
+
+Then, open your command prompt:
+
+wsl --list -v
+You should be able to see, make sure the STATE for both is Stopped.
+
+  NAME                   STATE           VERSION
+* docker-desktop         Stopped         2
+  docker-desktop-data    Stopped         2
+Export docker-desktop-data into a file
+
+wsl --export docker-desktop-data "D:\Docker\wsl\data\docker-desktop-data.tar"
+Unregister docker-desktop-data from wsl, note that after this, your ext4.vhdx file would automatically be removed
+
+wsl --unregister docker-desktop-data
+Import the docker-desktop-data back to wsl, but now the ext4.vhdx would reside in different drive/directory:
+
+wsl --import docker-desktop-data "D:\Docker\wsl\data" "D:\Docker\wsl\data\docker-desktop-data.tar" --version 2
+Start the Docker Desktop again and it should work
+
+You may delete the "D:\Docker\wsl\data\docker-desktop-data.tar" file (NOT the ext4.vhdx file) if everything looks good for you after verifying
+```
+
 ## 常用仓库链接
 - [mysql](https://hub.docker.com/_/mysql)
 
