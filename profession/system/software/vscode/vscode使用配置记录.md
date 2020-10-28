@@ -15,6 +15,14 @@ _配置完后大致样子如下_
 -   Instant Markdown:Markdown 文档浏览器查看，好用，必备
 -   One Monokai Theme:好看的主题，不错
 -   Vim:不用不习惯，个人选择
+- settings-sync:配置备份同步
+- TODO Highlight：TODO list
+- WakaTime ：统计在 VS Code 里写代码的时间
+- Code Time：记录编程时间，统计代码行数。
+- Markdown All in One：这个插件将帮助你更高效地在 Markdown 中编写文档。
+- Prettier - Code formatter：Prettier 是一个代码格式化工具，只关注格式化，但不具备校验功能。
+- indent-rainbow：突出显示代码缩进
+- Code Spell Checker：单词拼写错误检查
 
 ### 字体
 
@@ -36,6 +44,30 @@ _配置完后大致样子如下_
 "editor.fontSize": 15, //设置字体大小，这个不多说都明白
 ```
 
+### 设置背景图片
+- [vscode设置背景图片](https://www.cnblogs.com/chinabin1993/p/7151361.html)
+
+```sh
+    // 设置背景图片
+    "background.enabled": true,
+    "background.useDefault": false,
+    "background.customImages": [
+        "file:///D:/Download/1.jpeg"
+    ],
+    "background.style": {
+        "content": "''",
+        "pointer-events": "none",
+        "position": "absolute",
+        "z-index": "99999",
+        "width": "100%",
+        "height": "100%",
+        "background-position": "center",
+        "background-repeat": "no-repeat",
+        "background-size": "100%,100%",
+        "opacity": 0.1
+    }
+```
+
 ### Ctrl等快捷键使用还原
 可以通过 File -> Preference -> Settings中   vim.useCtrlKeys 选项设置为 false
 
@@ -44,3 +76,5 @@ _配置完后大致样子如下_
 -   [Windows 下如何配置好看且好用的 VSCODE 环境](https://zhuanlan.zhihu.com/p/164852197)
 - [Style your Windows terminal and use WSL and PowerShell like a pro](https://medium.com/@hjgraca/style-your-windows-terminal-and-wsl2-like-a-pro-9a2e1ad4c9d0)
 - [JanDeDobbeleer/oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh?WT.mc_id=-blog-scottha#installation)
+- [第一次使用VS Code时你应该知道的一切配置](https://zhuanlan.zhihu.com/p/62913725)
+- [如何实现Github markdown 目录/页内跳转？](https://www.zhihu.com/question/58630229/answer/191984051)

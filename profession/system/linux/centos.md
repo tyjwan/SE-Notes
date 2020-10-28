@@ -1,6 +1,7 @@
 # Centos 使用记录
 ***
 ## 安装
+- [Download Fedora 33 Workstation](https://getfedora.org/en/workstation/download/)
 - 启动盘制作使用Linux的专用工具，避免安装时不必要的麻烦，推荐：[rufus](https://rufus.ie/)
 - [balenaEtcher](https://www.balena.io/etcher/)
 
@@ -9,6 +10,7 @@
 - 进入：/etc/sysconfig/network-xxx/ifcfg-xxxx,修改onboot选项为yes即可，service network restart 重启网络设置
 - systemctl stop firewalld.service #停止firewall
 - systemctl disable firewalld.service #禁止firewall开机启动
+- centos8:nmcli c reload
 
 ### 设置静态IP
 ```bash

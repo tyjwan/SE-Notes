@@ -205,6 +205,17 @@ git push -u origin --all
 git push -u origin --tags
 ```
 
+### github代理加速
+```sh
+# socks5协议，1080端口修改成自己的本地代理端口
+git config --global http.https://github.com.proxy socks5://127.0.0.1:1080
+git config --global https.https://github.com.proxy socks5://127.0.0.1:1080
+
+# http协议，1081端口修改成自己的本地代理端口
+git config --global http.https://github.com.proxy https://127.0.0.1:1081
+git config --global https.https://github.com.proxy https://127.0.0.1:1081
+```
+
 ## 参考链接
 - [http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=2650661735&idx=1&sn=9aceac07d272e9202d1b5294f857a5ff&scene=23&srcid=0527tuPapv7riaNZFSHQGe4w#rd](http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=2650661735&idx=1&sn=9aceac07d272e9202d1b5294f857a5ff&scene=23&srcid=0527tuPapv7riaNZFSHQGe4w#rd)
 - [http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=2650661762&idx=1&sn=8282241cf7414030f4e1d315a173beb1&scene=23&srcid=0527o8THYaNT8wb7pcE8JS5G#rd](http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=2650661762&idx=1&sn=8282241cf7414030f4e1d315a173beb1&scene=23&srcid=0527o8THYaNT8wb7pcE8JS5G#rd)
@@ -212,4 +223,4 @@ git push -u origin --tags
 - [git忽略特定文件或目录](https://blog.csdn.net/huzhenwei/article/details/7426093)
 - [git配置过程中fatal:拒绝合并无关的历史](https://blog.csdn.net/yamanda/article/details/79375698)
 - [Git 合并指定文件或文件夹](https://juejin.im/post/5adff0d0f265da0b7f4434dc)
-- [git clone 太慢的解决方式](https://blog.csdn.net/twang0x80/article/details/79777135)
+- [一招 git clone 加速](https://juejin.im/post/6844903862961176583)

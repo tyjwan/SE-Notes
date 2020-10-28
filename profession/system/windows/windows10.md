@@ -22,7 +22,7 @@
 - [Download Anaconda Distribution](https://www.anaconda.com/download/)
 - [Java SE Development Kit 8 Downloads](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Win10如何配置Jdk环境变量](https://jingyan.baidu.com/article/db55b609fa946e4ba20a2f56.html)
-- [Install Docker for Windows]https://docs.docker.com/docker-for-windows/install/)
+- [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 - [Windows Docker 安装](http://www.runoob.com/docker/windows-docker-install.html)
 - [VistaSwitcher – 极佳的程序切换工具](https://www.appinn.com/vistaswitcher/)
 - [Listary Pro - 能极大幅度提高你 Windows 文件浏览与搜索速度效率的「超级神器」](https://www.iplaysoft.com/listary.html)
@@ -116,23 +116,10 @@ terni setting file
     "profiles": {
         "defaults": {
             // Put settings here that you want to apply to all profiles.
-            "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-            "hidden": false,
-            "name": "PowerShell-7",
-            "source": "Windows.Terminal.PowershellCore",
-            // 启动菜单一定要设置为 <.>，否则后面重要的一步将会无效！
-            "startingDirectory": ".",
-            // 字体
-            "fontFace": "Fira Code",
-            "fontSize": 11,
-            "historySize": 9001,
-            "padding": "5, 5, 20, 25",
-            "snapOnInput": true,
-            "useAcrylic": true,
-            // 颜色
-            "colorScheme": "Molokai",
-            "acrylicOpacity": 0.65,
-            "backgroundImageOpacity": 0.3,
+            "useAcrylic": true, 
+            "acrylicOpacity": 0.5,
+            "backgroundImage": "file:///D:/download/1.jpeg",
+                "backgroundImageOpacity": 0.1,
         },
         "list": [
             {
@@ -151,8 +138,7 @@ terni setting file
                 "useAcrylic": true,
                 // 颜色
                 "colorScheme": "Molokai",
-                "acrylicOpacity": 0.65,
-                "backgroundImageOpacity": 0.3,
+                "acrylicOpacity": 0.55,
             },
             {
                 // Make changes here to the powershell.exe profile.
@@ -259,6 +245,8 @@ terni setting file
 - Ctrl+左右方向键：移动一个单词
 - Ctrl+shift+左右方向键：移动选中
 
+## 命令
+- 查看硬盘列表及类型：Get-PhysicalDisk
 
 ## 参考链接
 - [Windows命令行工具cmder配置](https://segmentfault.com/a/1190000011361877)
@@ -270,3 +258,6 @@ terni setting file
 - [Windows Terminal配置帮助文档](https://docs.microsoft.com/zh-cn/windows/terminal/)
 - [主题大全，直接复制](https://windowsterminalthemes.dev/)
 - [Windows Terminal 完美配置 PowerShell 7.1](https://zhuanlan.zhihu.com/p/137595941)
+- [2020 鼠标指针还不换一换？](https://zhuanlan.zhihu.com/p/128678357)
+- [Task switcher and launcher, used to replace ALT+TAB and WIN+R.](https://github.com/Answeror/lit)
+- [Visual Studio 2017 设置透明背景图](https://www.cnblogs.com/stulzq/p/9393323.html)

@@ -1,26 +1,6 @@
 # 碎片学习随记
 ***
 ## 文档索引
-- extention
-    - book
-        - [Python高手之路.md](./extention/book/Python高手之路.md)
-        - [不惧孤独，不畏寂寞.md](./extention/book/不惧孤独，不畏寂寞.md)
-        - [倔金小册_redis深度历险.md](./extention/book/倔金小册_redis深度历险.md)
-        - [告白.md](./extention/book/告白.md)
-        - [效率证明能力.md](./extention/book/效率证明能力.md)
-        - [第一本docker书.md](./extention/book/第一本docker书.md)
-        - [重塑大脑，重塑人生.md](./extention/book/重塑大脑，重塑人生.md)
-    - 得到
-        - [什么是强者的生活哲学.md](./extention/得到/什么是强者的生活哲学.md)
-        - 前哨第二季
-            - [混合现实.md](./extention/得到/前哨第二季/混合现实.md)
-        - [如何快速提升英语口语能力.md](./extention/得到/如何快速提升英语口语能力.md)
-        - [如何成为有效学习的高手-许岑.md](./extention/得到/如何成为有效学习的高手-许岑.md)
-        - [怎样成为精力管理的高手.md](./extention/得到/怎样成为精力管理的高手.md)
-        - [怎样让学校效率最高.md](./extention/得到/怎样让学校效率最高.md)
-    - 极客时间
-        - 全栈工程师修炼指南
-            - [01HTTP协议的演化.md](./extention/极客时间/全栈工程师修炼指南/01HTTP协议的演化.md)
 - profession
     - common
         - [Markdown.md](./profession/common/Markdown.md)
