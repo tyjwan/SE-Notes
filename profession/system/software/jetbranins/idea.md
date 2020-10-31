@@ -21,6 +21,7 @@
 -   Translation:https://plugins.jetbrains.com/plugin/8579-translation,最好用的翻译插件，功能很强大，界面很漂亮
 -   RestfulToolkit:接口调用调试，极其好用
 -   aiXcoer:代码预测补全， https://mp.weixin.qq.com/s/6O2oO0_JgQUZOcW9hUmw2Q
+- SFTP:自己玩的时候，本地环境中服务器的代码同步
 
 ### 插件下载官网
 

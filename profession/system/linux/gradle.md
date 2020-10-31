@@ -31,6 +31,18 @@ allprojects {
 }
 ```
 
+```sh
+Switch your build to use Gradle 5.2.1 by updating your wrapper properties:
+
+./gradlew wrapper --gradle-version=5.2.1
+
+
+apply plugin:'application'
+mainClassName = "com.gateway.server.Server"
+```
+
 ## 参考链接
 - [linux下的Gradle编译环境搭建与使用](https://blog.csdn.net/lxh19930428/article/details/53869408)
 - [Installing Gradle](https://docs.gradle.org/5.5.1/userguide/installation.html)
+- [gradle github](https://github.com/gradle/gradle/releases?after=v5.4.0-RC1)
+- 
