@@ -205,15 +205,27 @@ git push -u origin --all
 git push -u origin --tags
 ```
 
+### Commit合并
+```sh
+# 合并
+git rebase -i idxxxxxxxxx
+
+# 撤销
+git rebase --abort
+```
+
 ### github代理加速
 ```sh
 # socks5协议，1080端口修改成自己的本地代理端口
-git config --global http.https://github.com.proxy socks5://127.0.0.1:1080
+git config --global http.http://github.com.proxy socks5://127.0.0.1:1080
 git config --global https.https://github.com.proxy socks5://127.0.0.1:1080
 
 # http协议，1081端口修改成自己的本地代理端口
-git config --global http.https://github.com.proxy https://127.0.0.1:1081
-git config --global https.https://github.com.proxy https://127.0.0.1:1081
+git config --global http.http://github.com.proxy http://127.0.0.1:1080
+git config --global https.https://github.com.proxy https://127.0.0.1:1080
+
+# 取消代理
+git config --global --unset http.https://github.com.proxy
 ```
 
 ## 参考链接
