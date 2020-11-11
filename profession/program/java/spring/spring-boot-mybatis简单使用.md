@@ -1,4 +1,4 @@
-# Spring Boot Mybatis简单使用
+# Spring Boot Mybatis 入门示例
 ***
 
 **基于Spring Boot 2.3.4，Junit5**
@@ -26,6 +26,24 @@
                 └─mall
                     └─MallWeb
                         └─mapper
+```
+
+## 数据库初始化语句
+&ensp;&ensp;&ensp;&ensp;数据库表的初始化语句全部在下面，也可以根据自己的情况进行修改
+
+```sql
+CREATE DATABASE  IF NOT EXISTS `mall`;
+
+USE `mall`;
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(16) NOT NULL,
+  `password` varchar(16) NOT NULL,
+  `phoneNumber` varchar(15) NOT NULL,
+  `money` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 ```
 
 ### build.gradle：依赖添加

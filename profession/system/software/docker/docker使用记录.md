@@ -155,6 +155,9 @@ Start the Docker Desktop again and it should work
 You may delete the "D:\Docker\wsl\data\docker-desktop-data.tar" file (NOT the ext4.vhdx file) if everything looks good for you after verifying
 ```
 
+### 重新启动镜像
+docker system prune -a
+
 ## 常用仓库链接
 - [mysql](https://hub.docker.com/_/mysql)
 
