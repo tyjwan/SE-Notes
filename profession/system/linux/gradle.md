@@ -41,6 +41,16 @@ apply plugin:'application'
 mainClassName = "com.gateway.server.Server"
 ```
 
+### 运行Class文件
+```
+apply plugin:'application'
+mainClassName = "com.gateway.GateWayApplication"
+```
+
+```
+./gradlew run
+```
+
 ## 参考链接
 - [linux下的Gradle编译环境搭建与使用](https://blog.csdn.net/lxh19930428/article/details/53869408)
 - [Installing Gradle](https://docs.gradle.org/5.5.1/userguide/installation.html)

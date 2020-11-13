@@ -6,5 +6,7 @@
     + -p:将容器的3306端口映射到宿主机的3306端口
     + -e:设置mysql的root用户的密码为root
 
+- 遇到sock之类的错误，删文件，在重启后再重启
+
 ## 参考链接
 - [mysql](https://hub.docker.com/_/mysql)
