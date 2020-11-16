@@ -6,12 +6,14 @@
 
 &ensp;&ensp;&ensp;&ensp;保证一个类仅创建一个实例，并提供一个全局访问点
 
+&ensp;&ensp;&ensp;&ensp;Java推荐使用静态内部类或者枚举实现
+
 ## 创建模式
 
 ### 饿汉模式
 
 - 线程安全：static修饰变量，在类初始化过程中能保证唯一执行
-- 有点：保证唯一性，没有锁和其他判断，性能高
+- 优点：保证唯一性，没有锁和其他判断，性能高
 - 缺点：在类成员比较多或变量比较大时，在没有使用之前或初始化时就会一直暂用堆内存
 
 ```java
@@ -29,11 +31,9 @@ public final class Singleton {
 //饿汉模式 枚举实现
 public enum Singleton {
     INSTANCE;//不实例化
-    public List<String> list = null;// list属性
 
-  private Singleton() {//构造函数
-    list = new ArrayList<String>();
-  }
+    private Singleton() {//构造函数
+    }
     public static Singleton getInstance(){
         return INSTANCE;//返回已存在的对象
     }
@@ -41,8 +41,12 @@ public enum Singleton {
 ```
 
 ### 懒汉模式
+- 线程安全：需要使用锁来保障线程安全
+- 优点：需要的时候进行加载
+- 缺点：初次使用需要加载
 
 ```java
+// 前三种只是列举出来，不线程安全
 //懒汉模式
 public final class Singleton {
     private static Singleton instance= null;//不实例化
@@ -81,6 +85,7 @@ public final class Singleton {
     }
 }
 
+// 线程安全
 //懒汉模式 + synchronized同步锁 + double-check
 public final class Singleton {
     private static Singleton instance= null;//不实例化
@@ -117,48 +122,39 @@ public final class Singleton {
     }
 }
 
-//懒汉模式 内部类实现
-public final class Singleton {
-  public List<String> list = null;// list属性
-
-  private Singleton() {//构造函数
-    list = new ArrayList<String>();
-  }
-
-  // 内部类实现
-  public static class InnerSingleton {
-    private static Singleton instance=new Singleton();//自行创建实例
-  }
-
-  public static Singleton getInstance() {
-    return InnerSingleton.instance;// 返回内部类中的静态变量
-  }
-}
-
+//懒汉模式 静态内部类实现
+// 第一次加载Singleton类时并不会初始化sInstance，只有第一次调用getInstance方法时虚拟机加载SingletonHolder 并初始化sInstance ，这样不仅能确保线程安全也能保证Singleton类的唯一性，所以推荐使用静态内部类单例模式。
+public class Singleton { 
+    private Singleton(){
+    }
+    public static Singleton getInstance(){  
+        return SingletonHolder.sInstance;  
+    }  
+    private static class SingletonHolder {  
+        private static final Singleton sInstance = new Singleton();  
+    }  
+} 
 
 //懒汉模式 枚举实现
+// 推荐使用
 public class Singleton {
-    //不实例化
-    public List<String> list = null;// list属性
-
-  private Singleton(){//构造函数
-    list = new ArrayList<String>();
-  }
-    //使用枚举作为内部类
     private enum EnumSingleton {
-        INSTANCE;//不实例化
-        private Singleton instance = null;
+        /**
+         * 懒汉枚举单例
+         */
+        INSTANCE;
+        private Singleton instance;
 
-        private EnumSingleton(){//构造函数
-        instance = new Singleton();
-       }
+        EnumSingleton(){
+            instance = new Singleton();
+        }
         public Singleton getSingleton(){
-            return instance;//返回已存在的对象
+            return instance;
         }
     }
 
     public static Singleton getInstance(){
-        return EnumSingleton.INSTANCE.getSingleton();//返回已存在的对象
+        return EnumSingleton.INSTANCE.getSingleton();
     }
 }
 ```
