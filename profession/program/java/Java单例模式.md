@@ -158,3 +158,8 @@ public class Singleton {
     }
 }
 ```
+
+## 参考链接
+- [为什么用枚举类来实现单例模式越来越流行？](https://juejin.im/post/6844903925783461896)
+- [Java单例模式怎么用？看这篇就够了](https://zhuanlan.zhihu.com/p/150004430)
+- [设计模式（二）单例模式的七种写法](https://blog.csdn.net/itachi85/article/details/50510124)

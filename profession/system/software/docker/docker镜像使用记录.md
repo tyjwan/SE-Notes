@@ -21,5 +21,12 @@ docker run -dit --name mongo -p 27017:27017 mongo
 ## Nginx
 docker run -dit --name nginx -p 80:80 -v D:/temp/nginx.conf:/etc/nginx/nginx.conf nginx
 
+## docker-activemq
+docker run -dit --name mq -p 61616:61616 -p 8161:8161 rmohr/activemq
+
+初始账号：
+admin admin
+user user
+
 ## 参考链接
 - [mysql](https://hub.docker.com/_/mysql)

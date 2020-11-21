@@ -61,3 +61,4 @@ public class People {
 ## 设置类
 
 -   [IDEA 一定要改的 8 条配置](https://mp.weixin.qq.com/s/dfZrFuoih94Puu6dt_AxDA)
+- [IntelliJ IDEA悬停鼠标显示方法详细信息:how quick documentation on mouse move](https://blog.csdn.net/qq_34033853/article/details/86263014)
