@@ -283,7 +283,17 @@ public interface UserMapper {
         SELECT
             <include refid="Base_Column_List" />
         FROM users
-            WHERE id = #{id}
+            <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="user_id != null">
+                and user_id = #{user_id}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </trim>
     </select>
 
 </mapper>

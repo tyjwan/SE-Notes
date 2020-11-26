@@ -30,6 +30,7 @@
 
 ### 其他软件
 - [VMware Workstation Pro v15.5.1 官方版+激活密钥](https://www.nocmd.com/740.html)
+- [https://github.com/vim/vim-win32-installer/releases\]()
 
 ### 终端
 - Windows Terminal：商店进行获取

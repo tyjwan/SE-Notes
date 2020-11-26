@@ -732,3 +732,9 @@ func CheckTupe(v interface{}) {
 - 面向错误的设计
 - 面向恢复的设计
 - Chaos Engineering
+
+
+## 参考链接
+https://pkg.go.dev/
+https://golang.org/
+https://golang.google.cn/doc/effective_go.html
