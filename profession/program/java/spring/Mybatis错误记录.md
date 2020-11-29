@@ -10,3 +10,8 @@
 
 ### 解决办法
 不返回实体，返回map
+
+## Connection Java-MySql : Public Key Retrieval is not allowed
+add *allowPublicKeyRetrieval=true* in connect config, example:
+
+jdbc:mysql://localhost:3306/db?allowPublicKeyRetrieval=true&useSSL=false
