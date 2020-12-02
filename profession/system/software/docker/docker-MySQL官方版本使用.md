@@ -8,5 +8,10 @@
 
 - 遇到sock之类的错误，删文件，在重启后再重启
 
+```bash
+docker exec -ti mysql_bk1 rm -rf /var/run/mysqld/*
+docker restart mysql_bk1
+```
+
 ## 参考链接
 - [mysql](https://hub.docker.com/_/mysql)
