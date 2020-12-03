@@ -738,3 +738,7 @@ func CheckTupe(v interface{}) {
 https://pkg.go.dev/
 https://golang.org/
 https://golang.google.cn/doc/effective_go.html
+
+- [GO文档](http://docscn.studygolang.com/doc/)
+- [欢迎使用 Go 指南](https://tour.go-zh.org/list)
+- [Effective Go](http://docscn.studygolang.com/doc/effective_go.html)
