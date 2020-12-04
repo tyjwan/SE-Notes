@@ -104,7 +104,8 @@ terni setting file
 // For documentation on these settings, see: https://aka.ms/terminal-documentation
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    // modify to powershell7 guid
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     // You can add more global application settings here.
     // To learn more about global settings, visit https://aka.ms/terminal-global-settings
     // If enabled, selections are automatically copied to your clipboard.
