@@ -46,9 +46,59 @@ create database test;
 cat backup.sql | docker exec -i mysql_bk1 /usr/bin/mysql -u root --password=root test
 ```
 ### 主库设置
-&ensp;&ensp;&ensp;&ensp;首先在本地编写配置文件，这里使用的配置文件链接如下，根据情况进行修改即可：
+&ensp;&ensp;&ensp;&ensp;首先在本地编写配置文件，这里使用的配置文件如下，根据情况进行修改即可：
 
-- [mysql_master.cnf](./mysql_master.conf)
+```sh
+# Copyright (c) 2017, Oracle and/or its affiliates. All rights reserved.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+#
+# The MySQL  Server configuration file.
+#
+# For explanations see
+# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+
+[mysqld]
+pid-file        = /var/run/mysqld/mysqld.pid
+socket          = /var/run/mysqld/mysqld.sock
+datadir         = /var/lib/mysql
+secure-file-priv= NULL
+
+# Custom config should go here
+!includedir /etc/mysql/conf.d/
+
+#主从设置
+#主数据库端ID号
+server_id = 1           
+ #开启二进制日志                  
+log-bin = mysql-bin    
+#需要复制的数据库名，如果复制多个数据库，重复设置这个选项即可                  
+binlog-do-db = test  
+#将从服务器从主服务器收到的更新记入到从服务器自己的二进制日志文件中                 
+log-slave-updates                        
+#控制binlog的写入频率。每执行多少次事务写入一次(这个参数性能消耗很大，但可减小MySQL崩溃造成的损失) 
+sync_binlog = 1                    
+#这个参数一般用在主主同步中，用来错开自增值, 防止键值冲突
+auto_increment_offset = 1           
+#这个参数一般用在主主同步中，用来错开自增值, 防止键值冲突
+auto_increment_increment = 1            
+#二进制日志自动删除的天数，默认值为0,表示“没有自动删除”，启动时和二进制日志循环时可能删除  
+expire_logs_days = 7                    
+#将函数复制到slave  
+log_bin_trust_function_creators = 1    
+```
 
 &ensp;&ensp;&ensp;&ensp;操作日志如下：
 
@@ -73,7 +123,55 @@ Executed_Gtid_Set:
 ### 从库设置
 &ensp;&ensp;&ensp;&ensp;首先在本地编写配置文件，这里使用的配置文件链接如下，根据情况进行修改即可：
 
-- [mysql_slave1.cnf](./mysql_slave1.conf)
+```sh
+# Copyright (c) 2017, Oracle and/or its affiliates. All rights reserved.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+#
+# The MySQL  Server configuration file.
+#
+# For explanations see
+# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+
+[mysqld]
+pid-file        = /var/run/mysqld/mysqld.pid
+socket          = /var/run/mysqld/mysqld.sock
+datadir         = /var/lib/mysql
+secure-file-priv= NULL
+
+# Custom config should go here
+!includedir /etc/mysql/conf.d/
+
+# 主从设置
+# 从数据库端ID号
+server_id = 2           
+# 开启二进制日志                  
+log-bin = mysql-bin    
+# 需要复制的数据库名，如果复制多个数据库，重复设置这个选项即可                  
+binlog-do-db = test  
+# 将从服务器从主服务器收到的更新记入到从服务器自己的二进制日志文件中                 
+log-slave-updates                        
+# 控制binlog的写入频率。每执行多少次事务写入一次(这个参数性能消耗很大，但可减小MySQL崩溃造成的损失) 
+sync_binlog = 0                    
+#log buffer将每秒一次地写入log file中，并且log file的flush(刷到磁盘)操作同时进行。该模式下在事务提交的时候，不会主动触发写入磁盘的操作
+innodb_flush_log_at_trx_commit = 0
+# MySQL主从复制的时候，当Master和Slave之间的网络中断，但是Master和Slave无法察觉的情况下（比如防火墙或者路由问题）。
+# Slave会等待slave_net_timeout设置的秒数后，才能认为网络出现故障，然后才会重连并且追赶这段时间主库的数据
+slave-net-timeout = 60                    
+log_bin_trust_function_creators = 1
+```
 
 &ensp;&ensp;&ensp;&ensp;操作日志如下：
 
@@ -162,6 +260,8 @@ Master_SSL_Verify_Server_Cert: No
             Network_Namespace:
 1 row in set, 1 warning (0.01 sec)
 ```
+
+&ensp;&ensp;&ensp;&ensp;另外一个从库，配置和上面的命令完全一样，只是将mysql_bk1换成mysql_bk2即可
 
 ### 主从测试
 &ensp;&ensp;&ensp;&ensp;进入到主库中，插入一条数据，在从库中查询可以看到即可
