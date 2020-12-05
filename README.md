@@ -348,7 +348,7 @@
                 - [MongoDB使用记录.md](./profession/system/software/MongoDB/MongoDB使用记录.md)
                 - [Python-MongoDB.md](./profession/system/software/MongoDB/Python-MongoDB.md)
             - MySQL
-                - [Mysql Docker主从配置.md](./profession/system/software/MySQL/Mysql Docker主从配置.md)
+                - [MysqlDocker主从配置.md](./profession/system/software/MySQL/MysqlDocker主从配置.md)
                 - [MySQL使用记录.md](./profession/system/software/MySQL/MySQL使用记录.md)
                 - [MySQL安装指南.md](./profession/system/software/MySQL/MySQL安装指南.md)
             - nagios
