@@ -1,11 +1,32 @@
-# 碎片学习随记
-***
 ## 文档索引
+- extention
+    - book
+        - [Python高手之路.md](./extention/book/Python高手之路.md)
+        - [不惧孤独，不畏寂寞.md](./extention/book/不惧孤独，不畏寂寞.md)
+        - [倔金小册_redis深度历险.md](./extention/book/倔金小册_redis深度历险.md)
+        - [告白.md](./extention/book/告白.md)
+        - [效率证明能力.md](./extention/book/效率证明能力.md)
+        - [第一本docker书.md](./extention/book/第一本docker书.md)
+        - [重塑大脑，重塑人生.md](./extention/book/重塑大脑，重塑人生.md)
+        - [非暴力沟通.md](./extention/book/非暴力沟通.md)
+    - 得到
+        - [什么是强者的生活哲学.md](./extention/得到/什么是强者的生活哲学.md)
+        - [如何快速提升英语口语能力.md](./extention/得到/如何快速提升英语口语能力.md)
+        - [如何成为有效学习的高手-许岑.md](./extention/得到/如何成为有效学习的高手-许岑.md)
+        - [如何获得高效的睡眠,.md](./extention/得到/如何获得高效的睡眠,.md)
+        - [怎样成为精力管理的高手.md](./extention/得到/怎样成为精力管理的高手.md)
+        - [怎样让学校效率最高.md](./extention/得到/怎样让学校效率最高.md)
+        - [精英日课.md](./extention/得到/精英日课.md)
+    - [菜谱.md](./extention/菜谱.md)
 - profession
     - common
+        - [2020面试知识总览.md](./profession/common/2020面试知识总览.md)
+        - [githup加速.md](./profession/common/githup加速.md)
         - [Markdown.md](./profession/common/Markdown.md)
         - [XX-Net.txt](./profession/common/XX-Net.txt)
         - [XX-Net详细图文教程.md](./profession/common/XX-Net详细图文教程.md)
+        - 专栏
+            - [架构实战案例解析.md](./profession/common/专栏/架构实战案例解析.md)
         - [如何学习一门新技术.md](./profession/common/如何学习一门新技术.md)
         - 学习资料汇总
             - [Docker.md](./profession/common/学习资料汇总/Docker.md)
@@ -18,19 +39,26 @@
         - [搜索技巧总结.md](./profession/common/搜索技巧总结.md)
         - 操作系统
             - [操作系统笔面试考点.md](./profession/common/操作系统/操作系统笔面试考点.md)
-        - 数据结构
-            - [拓扑排序.md](./profession/common/数据结构/拓扑排序.md)
-            - [树的遍历.md](./profession/common/数据结构/树的遍历.md)
         - [笔试中的数学.md](./profession/common/笔试中的数学.md)
-        - 算法
-            - [一些技巧总结.md](./profession/common/算法/一些技巧总结.md)
-            - [子数组、子序列类型题目算法记录.md](./profession/common/算法/子数组、子序列类型题目算法记录.md)
-            - [排序总结.md](./profession/common/算法/排序总结.md)
+        - 算法与数据结构
+            - [一些技巧总结.md](./profession/common/算法与数据结构/一些技巧总结.md)
+            - [位运算.md](./profession/common/算法与数据结构/位运算.md)
+            - [堆与堆排序.md](./profession/common/算法与数据结构/堆与堆排序.md)
+            - [子数组、子序列类型题目算法记录.md](./profession/common/算法与数据结构/子数组、子序列类型题目算法记录.md)
+            - [拓扑排序.md](./profession/common/算法与数据结构/拓扑排序.md)
+            - [排序总结.md](./profession/common/算法与数据结构/排序总结.md)
+            - [最长回文串之中心扩散法.md](./profession/common/算法与数据结构/最长回文串之中心扩散法.md)
+            - [树的遍历.md](./profession/common/算法与数据结构/树的遍历.md)
+            - [线性数据结构概览.md](./profession/common/算法与数据结构/线性数据结构概览.md)
+            - [递归.md](./profession/common/算法与数据结构/递归.md)
+            - [非线性数据结构概览.md](./profession/common/算法与数据结构/非线性数据结构概览.md)
         - [编程清单.md](./profession/common/编程清单.md)
         - [翻墙方法总结.md](./profession/common/翻墙方法总结.md)
         - 设计模式
             - [UML.md](./profession/common/设计模式/UML.md)
             - [简单工厂模式.md](./profession/common/设计模式/简单工厂模式.md)
+            - [设计模式总览.md](./profession/common/设计模式/设计模式总览.md)
+        - [软件开发工程师简历模板.md](./profession/common/软件开发工程师简历模板.md)
         - [项目开发工具.md](./profession/common/项目开发工具.md)
     - program
         - C++
@@ -43,6 +71,7 @@
                 - [string.md](./profession/program/C++/STL/string.md)
                 - [空间配置器.md](./profession/program/C++/STL/空间配置器.md)
                 - [简介.md](./profession/program/C++/STL/简介.md)
+            - [windows环境配置.md](./profession/program/C++/windows环境配置.md)
             - [函数简介.md](./profession/program/C++/函数简介.md)
             - 基础
                 - [sizeof.md](./profession/program/C++/基础/sizeof.md)
@@ -51,12 +80,15 @@
                 - [多态.md](./profession/program/C++/基础/多态.md)
                 - [拷贝构造函数.md](./profession/program/C++/基础/拷贝构造函数.md)
                 - [指针.md](./profession/program/C++/基础/指针.md)
+                - [注释.md](./profession/program/C++/基础/注释.md)
                 - [类型转换.md](./profession/program/C++/基础/类型转换.md)
                 - [重载.md](./profession/program/C++/基础/重载.md)
             - 多线程
+                - [linux多线程入门.md](./profession/program/C++/多线程/linux多线程入门.md)
                 - [什么是多线程.md](./profession/program/C++/多线程/什么是多线程.md)
                 - [多线程笔面试考点.md](./profession/program/C++/多线程/多线程笔面试考点.md)
                 - [学习中遇到的困惑.md](./profession/program/C++/多线程/学习中遇到的困惑.md)
+            - [安装.md](./profession/program/C++/安装.md)
             - 泛型编程
                 - [泛型编程.md](./profession/program/C++/泛型编程/泛型编程.md)
             - 测试
@@ -70,30 +102,64 @@
                 - [网络基础知识.md](./profession/program/C++/网络编程/网络基础知识.md)
                 - [网络编程1.md](./profession/program/C++/网络编程/网络编程1.md)
                 - [网络编程主要函数记录.md](./profession/program/C++/网络编程/网络编程主要函数记录.md)
+            - 配置
+                - [Windows下Clion的pthread的配置.md](./profession/program/C++/配置/Windows下Clion的pthread的配置.md)
         - git
             - [git.md](./profession/program/git/git.md)
             - [gitlab-CI.md](./profession/program/git/gitlab-CI.md)
+        - GoLang
+            - [GoError.md](./profession/program/GoLang/GoError.md)
+            - [Go入门总览.md](./profession/program/GoLang/Go入门总览.md)
+            - [Go设置使用记录.md](./profession/program/GoLang/Go设置使用记录.md)
         - java
             - [Java-Guava.md](./profession/program/java/Java-Guava.md)
+            - [Java业务开发常见错误100例.md](./profession/program/java/Java业务开发常见错误100例.md)
+            - [Java单例模式.md](./profession/program/java/Java单例模式.md)
+            - [JAVA工程师知识总览.md](./profession/program/java/JAVA工程师知识总览.md)
+            - [java性能调优概览.md](./profession/program/java/java性能调优概览.md)
             - [java核心API学习记录.md](./profession/program/java/java核心API学习记录.md)
+            - [Java核心面试知识点.md](./profession/program/java/Java核心面试知识点.md)
+            - JVM
+                - [JVM内存模型.md](./profession/program/java/JVM/JVM内存模型.md)
+                - [JVM总览.md](./profession/program/java/JVM/JVM总览.md)
+                - [JVM调优.md](./profession/program/java/JVM/JVM调优.md)
+                - [垃圾回收G1算法.md](./profession/program/java/JVM/垃圾回收G1算法.md)
+            - [Maven使用记录.md](./profession/program/java/Maven使用记录.md)
             - [MongoDB.md](./profession/program/java/MongoDB.md)
-            - mybatis
-                - [入门使用记录.md](./profession/program/java/mybatis/入门使用记录.md)
             - res
+                - [Hibenate和Mybatis异同.md](./profession/program/java/res/Hibenate和Mybatis异同.md)
+                - [profile机制.md](./profession/program/java/res/profile机制.md)
                 - [遭遇的问题记录.md](./profession/program/java/res/遭遇的问题记录.md)
+            - shardingsphere
+                - [shardingSphere-proxy.md](./profession/program/java/shardingsphere/shardingSphere-proxy.md)
+                - [shardingsphere-raw-jdbc.md](./profession/program/java/shardingsphere/shardingsphere-raw-jdbc.md)
             - spring
                 - [File与MultipartFile.md](./profession/program/java/spring/File与MultipartFile.md)
+                - [Java代理.md](./profession/program/java/spring/Java代理.md)
+                - [Mybatis最佳实践.md](./profession/program/java/spring/Mybatis最佳实践.md)
+                - [Mybatis错误记录.md](./profession/program/java/spring/Mybatis错误记录.md)
+                - [Spring AOP.md](./profession/program/java/spring/Spring AOP.md)
+                - [Spring Bean.md](./profession/program/java/spring/Spring Bean.md)
+                - [Spring IOC.md](./profession/program/java/spring/Spring IOC.md)
                 - [Spring-boot-Gradle项目搭建.md](./profession/program/java/spring/Spring-boot-Gradle项目搭建.md)
                 - [spring-boot-lombok配置.md](./profession/program/java/spring/spring-boot-lombok配置.md)
                 - [spring-boot-mybatis简单使用.md](./profession/program/java/spring/spring-boot-mybatis简单使用.md)
                 - [spring-boot-websocket.md](./profession/program/java/spring/spring-boot-websocket.md)
                 - [spring-boot-异步调用.md](./profession/program/java/spring/spring-boot-异步调用.md)
                 - [spring-boot-项目搭建.md](./profession/program/java/spring/spring-boot-项目搭建.md)
+                - [Spring-boot启动详解.md](./profession/program/java/spring/Spring-boot启动详解.md)
+                - [Spring-ConfigurationProperties详解.md](./profession/program/java/spring/Spring-ConfigurationProperties详解.md)
                 - [Spring-Security.md](./profession/program/java/spring/Spring-Security.md)
+                - [SpringBoot-Mybatis-MySQL主从分离读写.md](./profession/program/java/spring/SpringBoot-Mybatis-MySQL主从分离读写.md)
+                - [SpringBootAutoConfiguration.md](./profession/program/java/spring/SpringBootAutoConfiguration.md)
+                - [SpringBootWeb工程初始化.md](./profession/program/java/spring/SpringBootWeb工程初始化.md)
+                - [SpringTest.md](./profession/program/java/spring/SpringTest.md)
                 - [接口编写记录.md](./profession/program/java/spring/接口编写记录.md)
                 - [文件上传下载.md](./profession/program/java/spring/文件上传下载.md)
                 - [访问链接获取.md](./profession/program/java/spring/访问链接获取.md)
                 - [跨域设置.md](./profession/program/java/spring/跨域设置.md)
+            - 专栏
+                - [小马哥讲Spring核心编程思想.md](./profession/program/java/专栏/小马哥讲Spring核心编程思想.md)
             - [图像相关.md](./profession/program/java/图像相关.md)
             - 基础
                 - [CSV.md](./profession/program/java/基础/CSV.md)
@@ -115,6 +181,11 @@
                 - [转换.md](./profession/program/java/基础/转换.md)
                 - [配置文件读取.md](./profession/program/java/基础/配置文件读取.md)
                 - [随机数.md](./profession/program/java/基础/随机数.md)
+            - 并发编程
+                - [Java 多线程概览.md](./profession/program/java/并发编程/Java 多线程概览.md)
+                - [Java多线程编程最佳实践.md](./profession/program/java/并发编程/Java多线程编程最佳实践.md)
+                - [并发综述.md](./profession/program/java/并发编程/并发综述.md)
+            - [收藏链接.md](./profession/program/java/收藏链接.md)
             - [数据库操作.md](./profession/program/java/数据库操作.md)
             - [杂记.md](./profession/program/java/杂记.md)
             - 测试
@@ -135,8 +206,10 @@
                 - [flask使用记录.md](./profession/program/python/flask/flask使用记录.md)
             - [python 基础学习.md](./profession/program/python/python 基础学习.md)
             - [Python-Linux环境配置.md](./profession/program/python/Python-Linux环境配置.md)
+            - [Python3常用记录.md](./profession/program/python/Python3常用记录.md)
             - [Python学习记录-第一周.md](./profession/program/python/Python学习记录-第一周.md)
             - [Python资源记录.md](./profession/program/python/Python资源记录.md)
+            - [Python配置记录.md](./profession/program/python/Python配置记录.md)
             - wxPython
                 - [wxPython学习.md](./profession/program/python/wxPython/wxPython学习.md)
             - 基础
@@ -174,6 +247,7 @@
                 - [PSUtil.md](./profession/program/python/第三方库/PSUtil.md)
                 - [websocket-client.md](./profession/program/python/第三方库/websocket-client.md)
                 - [websocket-server.md](./profession/program/python/第三方库/websocket-server.md)
+                - [多核多CPU并行.md](./profession/program/python/第三方库/多核多CPU并行.md)
                 - [常用第三方库集合.md](./profession/program/python/第三方库/常用第三方库集合.md)
         - SFML
             - [SFML与VS2015配置.md](./profession/program/SFML/SFML与VS2015配置.md)
@@ -184,10 +258,14 @@
                 - [决策树CART.md](./profession/program/人工智能/机器学习/决策树CART.md)
                 - [决策树ID3与C4.5.md](./profession/program/人工智能/机器学习/决策树ID3与C4.5.md)
                 - [决策树之构造生成.md](./profession/program/人工智能/机器学习/决策树之构造生成.md)
+                - [朴素贝叶斯分类器.md](./profession/program/人工智能/机器学习/朴素贝叶斯分类器.md)
             - 深度学习
                 - [caffe的安装配置记录.md](./profession/program/人工智能/深度学习/caffe的安装配置记录.md)
         - 前端
+            - [react.md](./profession/program/前端/react.md)
+            - [vue代理配置.md](./profession/program/前端/vue代理配置.md)
             - [vue环境搭建运行.md](./profession/program/前端/vue环境搭建运行.md)
+            - [开发环境配置之VS.md](./profession/program/前端/开发环境配置之VS.md)
         - 大数据
             - opentsdb
                 - [OpenTSDB使用记录.md](./profession/program/大数据/opentsdb/OpenTSDB使用记录.md)
@@ -201,6 +279,7 @@
                 - [在线挖掘.md](./profession/program/大数据/数据挖掘/在线挖掘.md)
         - 网络
             - [socket.md](./profession/program/网络/socket.md)
+            - [网络编程实战.md](./profession/program/网络/网络编程实战.md)
     - system
         - Android
             - [小米6刷机.md](./profession/system/Android/小米6刷机.md)
@@ -224,6 +303,7 @@
             - [snort3.md](./profession/system/linux/snort3.md)
             - [ssh隧道.md](./profession/system/linux/ssh隧道.md)
             - [supervisor使用.md](./profession/system/linux/supervisor使用.md)
+            - [ubuntu.md](./profession/system/linux/ubuntu.md)
             - [virtualbox.md](./profession/system/linux/virtualbox.md)
             - [webbench接口并发测试.md](./profession/system/linux/webbench接口并发测试.md)
             - [yapi.md](./profession/system/linux/yapi.md)
@@ -242,10 +322,13 @@
                 - [Atom快捷键.md](./profession/system/software/Atom/Atom快捷键.md)
                 - [git操作.md](./profession/system/software/Atom/git操作.md)
             - docker
+                - [centos.md](./profession/system/software/docker/centos.md)
                 - [docker-MySQL官方版本使用.md](./profession/system/software/docker/docker-MySQL官方版本使用.md)
+                - [docker中各数据库使用.md](./profession/system/software/docker/docker中各数据库使用.md)
                 - [docker使用记录.md](./profession/system/software/docker/docker使用记录.md)
                 - [docker容器内存和CPU使用限制.md](./profession/system/software/docker/docker容器内存和CPU使用限制.md)
                 - [docker应用.md](./profession/system/software/docker/docker应用.md)
+                - [docker镜像使用记录.md](./profession/system/software/docker/docker镜像使用记录.md)
                 - [docker默认目录的转移.md](./profession/system/software/docker/docker默认目录的转移.md)
                 - [Java程序镜像制作.md](./profession/system/software/docker/Java程序镜像制作.md)
             - eclipse
@@ -265,6 +348,7 @@
                 - [MongoDB使用记录.md](./profession/system/software/MongoDB/MongoDB使用记录.md)
                 - [Python-MongoDB.md](./profession/system/software/MongoDB/Python-MongoDB.md)
             - MySQL
+                - [Mysql Docker主从配置.md](./profession/system/software/MySQL/Mysql Docker主从配置.md)
                 - [MySQL使用记录.md](./profession/system/software/MySQL/MySQL使用记录.md)
                 - [MySQL安装指南.md](./profession/system/software/MySQL/MySQL安装指南.md)
             - nagios
@@ -284,7 +368,8 @@
             - [postman.md](./profession/system/software/postman.md)
             - Redis
                 - [Java-Redis.md](./profession/system/software/Redis/Java-Redis.md)
-                - [redis.md](./profession/system/software/Redis/redis.md)
+                - [redis使用记录.md](./profession/system/software/Redis/redis使用记录.md)
+                - [Redis知识总览.md](./profession/system/software/Redis/Redis知识总览.md)
             - RRD
                 - [RRD使用记录.md](./profession/system/software/RRD/RRD使用记录.md)
                 - [RRD浣跨敤璁板綍.md](./profession/system/software/RRD/RRD浣跨敤璁板綍.md)
@@ -306,12 +391,16 @@
                 - [插件安装篇.md](./profession/system/software/virsual_studio/插件安装篇.md)
             - Vmware
                 - [VMware使用记录.md](./profession/system/software/Vmware/VMware使用记录.md)
+            - vscode
+                - [vscode使用配置记录.md](./profession/system/software/vscode/vscode使用配置记录.md)
         - windows
             - [bat.md](./profession/system/windows/bat.md)
             - [office激活.md](./profession/system/windows/office激活.md)
+            - [superbenchmarker.md](./profession/system/windows/superbenchmarker.md)
             - [Windows-terminal安装.md](./profession/system/windows/Windows-terminal安装.md)
             - [windows10.md](./profession/system/windows/windows10.md)
             - [windows命令使用记录.md](./profession/system/windows/windows命令使用记录.md)
+            - [winSh中使用vim.md](./profession/system/windows/winSh中使用vim.md)
         - 其他
             - screeps
                 - [screeps.md](./profession/system/其他/screeps/screeps.md)

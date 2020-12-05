@@ -40,7 +40,7 @@ authentication:
       password: root
     sharding:
       password: sharding
-      authorizedSchemas: sharding_db
+      authorizedSchemas: test
 
 props:
   max.connections.size.per.query: 1
