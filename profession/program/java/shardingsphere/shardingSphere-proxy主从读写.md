@@ -1,19 +1,22 @@
-# ShardingSphere Proxy 入门使用
+# ShardingSphere Proxy 主从读写 入门使用
 ***
+
+*基于ShardingSphere5.0.0Alpha*
+
 ## 环境准备
 ### MySQL搭建
 &ensp;&ensp;&ensp;&ensp;准备MySQL
 
-- 准备三个mysql，一主二从，搭建教程链接：[Mysql docker 主从配置]()
+- 准备三个mysql，一主二从，搭建教程链接：[Mysql docker 主从配置](https://github.com/lw1243925457/SE-Notes/blob/master/profession/system/software/MySQL/MysqlDocker%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE.md)
     - 3306:主库
     - 3309、3310：从库
 
 ### 配置ShardingSphere-Proxy
 &ensp;&ensp;&ensp;&ensp;这里使用5.0.0版本的
 
-- 1.下载ShardingSphere-Proxy,[下载链接](https://www.apache.org/dyn/closer.cgi/shardingsphere/5.0.0-alpha/apache-shardingsphere-5.0.0-alpha-shardingsphere-proxy-bin.tar.gz)
+- 1.[下载ShardingSphere-Proxy](https://www.apache.org/dyn/closer.cgi/shardingsphere/5.0.0-alpha/apache-shardingsphere-5.0.0-alpha-shardingsphere-proxy-bin.tar.gz)
 - 2.下载完成后解压放到自己的目录下,比如我这里是放到：D:/temp/ssp
-- 3.下载MySQL-connect.jar,[下载链接:mysql-connect.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar)
+- 3.[下载MySQL-connect.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar)
 - 4.将MySQL-connect.jar，放到ShardingSphere-Proxy根目录的lib下，比如我这里是：D:/temp/ssp/lib/
 
 - 5.写入配置文件，里面本身就有配置文件，这里需要写入的有两份，如果之前存在的就直接替换：server.xml和config-master_slave.yaml
