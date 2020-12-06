@@ -31,3 +31,7 @@
   <url>https://maven.aliyun.com/repository/public</url>
 </mirror>
 ```
+
+## 仓库地址
+- [maven](https://repo.maven.apache.org/maven2/org/apache/shardingsphere/)
+- [aliyun](https://maven.aliyun.com/mvn/search)

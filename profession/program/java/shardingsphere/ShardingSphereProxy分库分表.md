@@ -207,7 +207,7 @@ spring.datasource.password=root
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 
-&ensp;&ensp;&ensp;&ensp;实体类、Mapper设置这里就不详细赘述了，看[GitHub上的工程]()即可
+&ensp;&ensp;&ensp;&ensp;实体类、Mapper设置这里就不详细赘述了，看[GitHub上的工程](https://github.com/lw1243925457/JAVA-000/tree/main/homework/week0802/)即可
 
 
 &ensp;&ensp;&ensp;&ensp;测试类进行测试，代码如下：
