@@ -1,4 +1,4 @@
-# ShardingSphere RAW JDBC 分布式事务XA 代码示例
+# ShardingSphere RAW JDBC 分布式事务 Atomikos XA 代码示例
 ***
 *项目工程在：[transaction-2pc-xa-raw-jdbc-example](https://github.com/lw1243925457/JAVA-000/tree/main/homework/shardingSphere-jdbc-example/transaction-example/transaction-2pc-xa-raw-jdbc-example)*
 
